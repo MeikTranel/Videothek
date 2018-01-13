@@ -1,6 +1,7 @@
 image:
   - Visual Studio 2017
 build_script:
-  - ps: .\build.ps1 -target AppVeyor
+  - ps: .\build.ps1 -Target "AppVeyor"
 cache:
   tools -> build.cake
+  src\packages -> **\packages.config 
