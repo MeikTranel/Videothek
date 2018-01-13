@@ -9,6 +9,7 @@ Setup(ctx =>
        GitVersion(),
        DirectoryPath.FromString("./out")
     );
+    Information(BuildSystem);
 });
 
 Task("Restore-Dependencies")
