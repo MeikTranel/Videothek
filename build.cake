@@ -67,11 +67,11 @@ Task("Package")
 }); 
  
 Task("AppVeyor") 
-.WithCriteria(() => AppVeyor.IsRunningOnAppVeyor) 
+.WithCriteria(() => BuildSystem.AppVeyor.IsRunningOnAppVeyor) 
 .IsDependentOn("Package") 
 .Does(() => 
 { 
-    AppVeyor.UpdateBuildVersion(Settings.Version.SemVer);
+    BuildSystem.AppVeyor.UpdateBuildVersion(Settings.Version.SemVer);
     foreach(var artifactZip in GetFiles(Settings.Directories.BinaryOutputDirectory + "/*.zip")){ 
         Information($"Uploading { artifactZip } to AppVeyor as '{ artifactZip.GetFilename()}'."); 
         BuildSystem.AppVeyor.UploadArtifact(artifactZip);
