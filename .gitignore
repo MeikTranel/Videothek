@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/csharp,visualstudio
 
 ### Csharp ###
@@ -432,3 +431,15 @@ __pycache__/
 # should be stored in the .pubxml.user file.
 
 # End of https://www.gitignore.io/api/csharp,visualstudio
+
+
+#########################################################################################################################
+# Custom Rules
+#########################################################################################################################
+
+# Disallow everything inside the tools folder except the packages.config to pin down build dependency packages
+tools/*
+!tools/packages.config
+
+# Disallow primary build output directory
+out/

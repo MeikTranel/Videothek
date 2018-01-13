@@ -1,0 +1,13 @@
+assembly-versioning-scheme: MajorMinorPatch
+branches:
+  dev(elop)?(ment)?$:
+    mode: ContinuousDeployment
+    tag: Pre
+  releases?[/-]:
+    mode: ContinuousDeployment
+    tag: RC
+  (pull|pull\-requests|pr)[/-]:
+    mode: ContinuousDeployment
+    tag: PR
+ignore:
+  sha: []
