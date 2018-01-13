@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		//Powershell language server
+		"ms-vscode.powershell",
+		//OmniSharp dotnet language server
+		"ms-vscode.csharp",
+		//OmniSharp CakeDSL Extension + Common Cake Shortcuts etc.
+		"cake-build.cake-vscode",
+		//This one is basically cheating. Directory Path Intellisense
+		"christian-kohler.path-intellisense"	
+	]
+}
