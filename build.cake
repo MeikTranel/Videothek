@@ -1,5 +1,6 @@
 #tool "nuget:https://api.nuget.org/v3/index.json?package=GitVersion.CommandLine&version=3.6.2"
 #addin "Cake.Incubator"
+#addin "Cake.Json"
 #load "./build/Settings.cake"
 
 BuildSettings Settings;
@@ -9,7 +10,7 @@ Setup(ctx =>
        GitVersion(),
        DirectoryPath.FromString("./out")
     );
-    Information(BuildSystem);
+    Information(SerializeJsonPretty(BuildSystem));
 });
 
 Task("Restore-Dependencies")
