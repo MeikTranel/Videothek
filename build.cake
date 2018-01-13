@@ -75,4 +75,4 @@ Task("AppVeyor")
     } 
 });
 
-RunTarget("target");
+RunTarget(target);
