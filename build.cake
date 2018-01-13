@@ -16,8 +16,13 @@ Setup(ctx =>
    Settings = new BuildSettings();
 });
 
+Task("Restore-Dependencies")
+.Does(() => {
+    NuGetRestore("./src/Videothek.sln");
+});
 
 Task("Compile")
+.IsDependentOn("Restore-Dependencies")
 .Does(() => {
    MSBuild(
        "./src/Videothek.sln",
