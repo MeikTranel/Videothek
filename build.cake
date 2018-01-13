@@ -59,6 +59,7 @@ Task("Package")
 .IsDependentOn("Publish") 
 .Does(() => { 
     var artifactFolders = GetDirectories(Settings.Directories.BinaryOutputDirectory.FullPath + "/**/*"); 
+    Information($"Found {artifactFolders.Count} Artifact directories.");
     foreach(var artifactFolder in artifactFolders){ 
         Information($"Zipping {artifactFolder}");
         Zip(artifactFolder.FullPath,Settings.Directories.BinaryOutputDirectory.CombineWithFilePath(artifactFolder.GetDirectoryName() + ".zip")); 
