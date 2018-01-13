@@ -5,16 +5,13 @@
 #addin nuget:?package=Newtonsoft.Json&version=9.0.1
 
 #load "./build/Settings.cake"
-
+var target = Argument("target", "Package");
 BuildSettings Settings;
 Setup(ctx =>
 {
     Settings = new BuildSettings(
        GitVersion(),
        DirectoryPath.FromString("./out")
-    );
-    Information(
-         SerializeJsonPretty(BuildSystem.AppVeyor)
     );
 });
 
@@ -78,4 +75,4 @@ Task("AppVeyor")
     } 
 });
 
-RunTarget("Package");
+RunTarget("target");
