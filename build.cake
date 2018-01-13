@@ -1,19 +1,14 @@
-#addin nuget:?package=Cake.Incubator
 #tool "nuget:https://api.nuget.org/v3/index.json?package=GitVersion.CommandLine&version=3.6.2"
-
-#load "./build/Directories.cake"
+#addin "Cake.Incubator"
 #load "./build/Settings.cake"
 
-DirectoryPath baseOutDir = DirectoryPath.FromString("./out");
-BuildDirectories Directories;
 BuildSettings Settings;
-GitVersion Version;
-
 Setup(ctx =>
 {
-   Version = GitVersion();
-   Directories = new BuildDirectories(baseOutDir,Version);
-   Settings = new BuildSettings();
+    Settings = new BuildSettings(
+       GitVersion(),
+       DirectoryPath.FromString("./out")
+    );
 });
 
 Task("Restore-Dependencies")
@@ -29,7 +24,7 @@ Task("Compile")
        new MSBuildSettings(){
            BinaryLogger = new MSBuildBinaryLogSettings() {
                Enabled = true,
-               FileName = Directories.LogOutputDirectory + "/MSBuild.binlog"
+               FileName = Settings.Directories.LogOutputDirectory + "/MSBuild.binlog"
            },
            ToolVersion = MSBuildToolVersion.VS2017,
            Configuration = Settings.Configuration,
@@ -42,11 +37,33 @@ Task("Publish")
 .IsDependentOn("Compile")
 .Does(() => {
     var ProjectsToBePublished = new CustomProjectParserResult[]{
-        ParseProject("./src/Videothek.Terminal/Videothek.Terminal.csproj",Settings.Configuration)
+        ParseProject("./src/Videothek.Terminal/Videothek.Terminal.csproj","Release")
     };
     foreach(var project in ProjectsToBePublished){
-        CopyDirectory(project.OutputPath,Directories.BinaryOutputDirectory.Combine(project.AssemblyName));
+        CopyDirectory(project.OutputPath,Settings.Directories.BinaryOutputDirectory.Combine(project.AssemblyName));
     }
 });
 
-RunTarget("Publish");
+
+Task("Package") 
+.IsDependentOn("Publish") 
+.Does(() => { 
+    var artifactFolders = GetDirectories(Settings.Directories.BinaryOutputDirectory.FullPath + "/**/*"); 
+    foreach(var artifactFolder in artifactFolders){ 
+        Zip(artifactFolder.FullPath,Settings.Directories.BinaryOutputDirectory.CombineWithFilePath(artifactFolder.GetDirectoryName() + ".zip")); 
+    } 
+}); 
+ 
+Task("AppVeyor") 
+.WithCriteria(() => BuildSystem.AppVeyor.IsRunningOnAppVeyor) 
+.IsDependentOn("Package") 
+.Does(() => 
+{ 
+    AppVeyor.UpdateBuildVersion(Settings.Version.SemVer);
+    foreach(var artifactZip in GetFiles(Settings.Directories.BinaryOutputDirectory + "/*.zip")){ 
+        Information($"Uploading { artifactZip } to AppVeyor as '{ artifactZip.GetFilename()}'."); 
+        BuildSystem.AppVeyor.UploadArtifact(artifactZip);
+    } 
+});
+
+RunTarget("Package");
