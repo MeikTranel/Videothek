@@ -28,7 +28,8 @@ Task("Compile")
            },
            ToolVersion = MSBuildToolVersion.VS2017,
            Configuration = Settings.Configuration,
-           PlatformTarget = Settings.PlatformTarget
+           PlatformTarget = Settings.PlatformTarget,
+           Verbosity = Verbosity.Minimal
        }
     );
 });
@@ -55,7 +56,7 @@ Task("Package")
 }); 
  
 Task("AppVeyor") 
-.WithCriteria(() => BuildSystem.AppVeyor.IsRunningOnAppVeyor) 
+.WithCriteria(() => AppVeyor.IsRunningOnAppVeyor) 
 .IsDependentOn("Package") 
 .Does(() => 
 { 
