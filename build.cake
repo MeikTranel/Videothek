@@ -1,8 +1,6 @@
 #tool "nuget:https://api.nuget.org/v3/index.json?package=GitVersion.CommandLine&version=3.6.2"
 
 #addin "Cake.Incubator"
-#addin nuget:?package=Cake.Json
-#addin nuget:?package=Newtonsoft.Json&version=9.0.1
 
 #load "./build/Settings.cake"
 var target = Argument("target", "Package");
@@ -64,7 +62,7 @@ Task("Package")
 }); 
  
 Task("AppVeyor") 
-.WithCriteria(() => BuildSystem.AppVeyor.IsRunningOnAppVeyor) 
+.WithCriteria(() => BuildSystem.IsRunningOnAppVeyor) 
 .IsDependentOn("Package") 
 .Does(() => 
 { 
