@@ -1,6 +1,9 @@
 #tool "nuget:https://api.nuget.org/v3/index.json?package=GitVersion.CommandLine&version=3.6.2"
+
 #addin "Cake.Incubator"
-#addin "Cake.Json"
+#addin nuget:?package=Cake.Json
+#addin nuget:?package=Newtonsoft.Json&version=9.0.1
+
 #load "./build/Settings.cake"
 
 BuildSettings Settings;
@@ -10,8 +13,12 @@ Setup(ctx =>
        GitVersion(),
        DirectoryPath.FromString("./out")
     );
-    Information(SerializeJsonPretty(BuildSystem));
+    Information(
+         SerializeJsonPretty(BuildSystem.AppVeyor)
+    );
 });
+
+
 
 Task("Restore-Dependencies")
 .Does(() => {
@@ -53,6 +60,7 @@ Task("Package")
 .Does(() => { 
     var artifactFolders = GetDirectories(Settings.Directories.BinaryOutputDirectory.FullPath + "/**/*"); 
     foreach(var artifactFolder in artifactFolders){ 
+        Information($"Zipping {artifactFolder}");
         Zip(artifactFolder.FullPath,Settings.Directories.BinaryOutputDirectory.CombineWithFilePath(artifactFolder.GetDirectoryName() + ".zip")); 
     } 
 }); 
