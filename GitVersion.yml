@@ -1,13 +1,21 @@
 assembly-versioning-scheme: MajorMinorPatch
 branches:
-  dev(elop)?(ment)?$:
+  master:
+    mode: ContinuousDeployment
+    tag: 
+    increment: Minor
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false  
+  develop:
     mode: ContinuousDeployment
     tag: Pre
-  releases?[/-]:
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: true
+  release?[/-]:
     mode: ContinuousDeployment
     tag: RC
   (pull|pull\-requests|pr)[/-]:
     mode: ContinuousDeployment
     tag: PR
-ignore:
-  sha: []
+    increment: none
