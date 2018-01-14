@@ -69,20 +69,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\TestScreenViewModel.cs" />
+    <Compile Include="Views\DetailView.xaml.cs">
+      <DependentUpon>DetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestScreenView.xaml.cs">
+      <DependentUpon>TestScreenView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ViewModels\ICanRequestRootViewModelExchange.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HostView.xaml.cs">
-      <DependentUpon>HostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -115,15 +119,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HostView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TestScreenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,6 +144,10 @@
     <ProjectReference Include="..\Videothek.Core\Videothek.Core.csproj">
       <Project>{3156F631-7064-41ED-9FF9-8CD6A9658737}</Project>
       <Name>Videothek.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Videothek.MasterDetail\Videothek.MasterDetail.csproj">
+      <Project>{6F58974D-1384-4444-8761-BA3F3C90DE3B}</Project>
+      <Name>Videothek.MasterDetail</Name>
     </ProjectReference>
     <ProjectReference Include="..\Videothek.Persistence\Videothek.Persistence.csproj">
       <Project>{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}</Project>

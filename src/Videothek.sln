@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Videothek.Core", "Videothek
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videothek.Terminal", "Videothek.Terminal\Videothek.Terminal.csproj", "{1518B89A-C664-4D6C-AC1A-5E8083A4F6CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videothek.Authentication", "Videothek.Authentication\Videothek.Authentication.csproj", "{00B677B5-23F6-4826-9324-A19E7EC0AB1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Videothek.Authentication", "Videothek.Authentication\Videothek.Authentication.csproj", "{00B677B5-23F6-4826-9324-A19E7EC0AB1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videothek.Persistence", "Videothek.Persistence\Videothek.Persistence.csproj", "{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Videothek.Persistence", "Videothek.Persistence\Videothek.Persistence.csproj", "{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videothek.MasterDetail", "Videothek.MasterDetail\Videothek.MasterDetail.csproj", "{6F58974D-1384-4444-8761-BA3F3C90DE3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F58974D-1384-4444-8761-BA3F3C90DE3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F58974D-1384-4444-8761-BA3F3C90DE3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F58974D-1384-4444-8761-BA3F3C90DE3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F58974D-1384-4444-8761-BA3F3C90DE3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

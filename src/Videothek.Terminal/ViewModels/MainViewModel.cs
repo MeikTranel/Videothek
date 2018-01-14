@@ -1,10 +1,25 @@
-﻿using Stylet;
-using Videothek.Core.Authorization;
+﻿using Videothek.MasterDetail;
 
 namespace Videothek.Terminal.ViewModels
 {
-    public class MainViewModel : Screen
+    public class MainViewModel : MasterViewModel
     {
-        public Session Session { get; set; }
+        public MainViewModel()
+        {
+            RegisterSimpleDetailViewModel(
+                new TestScreenViewModel(
+                    "WOLOLOLOLOLOLOLO"
+                ),
+                fullName: "Age of Empires",
+                shortName: "AOE"
+            );
+            RegisterSimpleDetailViewModel(
+                new TestScreenViewModel(
+                    "Videos,Videos,Videos ..."
+                ),
+                fullName: "Alle Videos",
+                shortName: "Videos"
+            );
+        }
     }
 }
