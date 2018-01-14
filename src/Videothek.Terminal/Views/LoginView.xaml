@@ -1,0 +1,38 @@
+﻿<Metro:MetroWindow x:Class="Videothek.Terminal.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Videothek.Terminal.Views"
+        xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:VMs="clr-namespace:Videothek.Terminal.ViewModels"
+        xmlns:s="https://github.com/canton7/Stylet"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance VMs:LoginViewModel}"
+        BorderThickness="0" 
+        GlowBrush="Black"
+        ResizeMode="CanResizeWithGrip"
+        WindowTransitionsEnabled="False"
+        WindowStartupLocation="CenterScreen"
+        Height="250" Width="500">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="250">
+            <TextBox Metro:TextBoxHelper.ClearTextButton="True"
+                     Metro:TextBoxHelper.Watermark="Username"
+                     Metro:TextBoxHelper.UseFloatingWatermark="True"
+                     Text="{Binding Username}"
+                     VerticalAlignment="Center" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="pbPassword"
+                         Metro:TextBoxHelper.UseFloatingWatermark="True"
+                         Metro:TextBoxHelper.Watermark="Password" 
+                         Margin="0,0,0,5"
+                         PasswordChanged="PasswordBox_OnPasswordChanged"
+                         />
+            <Button 
+                Content="LOGIN" 
+                Style="{DynamicResource AccentedSquareButtonStyle}"
+                Command="{s:Action DoLogin}"/>
+        </StackPanel>
+
+    </Grid>
+</Metro:MetroWindow>

@@ -1,0 +1,16 @@
+image:
+  - Visual Studio 2017
+branches:
+  only:
+    - develop
+    - master
+    - /release/.*/
+    - /hotfix/.*/
+    - /feature/.*/
+    - /bugfix/.*/
+skip_branch_with_pr: true
+build_script:
+  - ps: .\build.ps1 -Target "AppVeyor"
+cache:
+  - src\packages -> src\**\packages.config
+  - tools -> build.cake
