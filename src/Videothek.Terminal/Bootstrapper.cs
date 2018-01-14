@@ -52,7 +52,9 @@ namespace Videothek.Terminal
 
         private void HandleRootVMExchangeRequested(object sender, object e)
         {
+            var windowToBeClosed = GetActiveWindow();
             DisplayRootView(e);
+            windowToBeClosed.Close();
         }
     }
 }
