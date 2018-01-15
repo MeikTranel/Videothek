@@ -6,8 +6,6 @@
         xmlns:VMs="clr-namespace:Videothek.Terminal.ViewModels"
         xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:stylet="https://github.com/canton7/Stylet"
-        xmlns:masterDetail="clr-namespace:Videothek.MasterDetail;assembly=Videothek.MasterDetail"
-        xmlns:views="clr-namespace:Videothek.Terminal.Views"
         mc:Ignorable="d" 
         d:DataContext="{d:DesignInstance VMs:MainViewModel}"
         Title="MainView" Height="450" Width="800"
@@ -19,20 +17,12 @@
     <Grid>
         <Metro:HamburgerMenu x:Name="HamburgerMenuControl"
                              ItemsSource="{Binding Items}"
-                             DisplayMode="CompactOverlay"
+                             DisplayMode="CompactInline"
                              ItemCommand="{stylet:Action DoActivateDetailViewModel}" 
                              ItemCommandParameter="{Binding SelectedItem, ElementName=HamburgerMenuControl}"
                              >
             <Metro:HamburgerMenu.Content>
-                <ContentControl stylet:View.Model="{Binding ActiveItem}">
-                    <ContentControl.Resources>
-                        <DataTemplate DataType="{x:Type masterDetail:IDetailViewModel}">
-                            <StackPanel>
-                                <views:DetailView/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ContentControl.Resources>
-                </ContentControl>
+                <ContentControl stylet:View.Model="{Binding ActiveItem}" />
             </Metro:HamburgerMenu.Content>
         </Metro:HamburgerMenu>
     </Grid>

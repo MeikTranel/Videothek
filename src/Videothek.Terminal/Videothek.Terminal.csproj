@@ -70,13 +70,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SimpleDetailViewModel.cs" />
     <Compile Include="ViewModels\TestScreenViewModel.cs" />
-    <Compile Include="Views\DetailView.xaml.cs">
-      <DependentUpon>DetailView.xaml</DependentUpon>
+    <Compile Include="Views\SimpleDetailView.xaml.cs">
+      <DependentUpon>SimpleDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MasterDetail\IDetailViewModel.cs" />
+    <Compile Include="MasterDetail\MasterViewModel.cs" />
     <Compile Include="Views\TestScreenView.xaml.cs">
       <DependentUpon>TestScreenView.xaml</DependentUpon>
     </Compile>
@@ -119,7 +122,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DetailView.xaml">
+    <Page Include="Views\SimpleDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,12 +145,8 @@
       <Name>Videothek.Authentication</Name>
     </ProjectReference>
     <ProjectReference Include="..\Videothek.Core\Videothek.Core.csproj">
-      <Project>{3156F631-7064-41ED-9FF9-8CD6A9658737}</Project>
+      <Project>{3156f631-7064-41ed-9ff9-8cd6a9658737}</Project>
       <Name>Videothek.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Videothek.MasterDetail\Videothek.MasterDetail.csproj">
-      <Project>{6F58974D-1384-4444-8761-BA3F3C90DE3B}</Project>
-      <Name>Videothek.MasterDetail</Name>
     </ProjectReference>
     <ProjectReference Include="..\Videothek.Persistence\Videothek.Persistence.csproj">
       <Project>{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}</Project>

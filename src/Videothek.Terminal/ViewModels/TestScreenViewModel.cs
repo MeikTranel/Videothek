@@ -1,5 +1,4 @@
-﻿using System;
-using Stylet;
+﻿using Stylet;
 
 namespace Videothek.Terminal.ViewModels
 {
@@ -8,8 +7,9 @@ namespace Videothek.Terminal.ViewModels
         public string Test { get; private set; }
 
 
-        public TestScreenViewModel(string test)
+        public TestScreenViewModel(string title,string test)
         {
+            DisplayName = title;
             Test = test;
         }
     }

@@ -3,7 +3,6 @@ using Stylet;
 using System.Security;
 using Videothek.Authentication;
 using Videothek.Core.Authorization;
-using Videothek.MasterDetail;
 
 namespace Videothek.Terminal.ViewModels
 {

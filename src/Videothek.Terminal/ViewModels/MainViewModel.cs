@@ -1,24 +1,30 @@
-﻿using Videothek.MasterDetail;
+﻿using Stylet;
+using Videothek.Terminal.MasterDetail;
 
 namespace Videothek.Terminal.ViewModels
 {
-    public class MainViewModel : MasterViewModel
+    public class MainViewModel : MasterViewModel<IScreen>
     {
         public MainViewModel()
         {
-            RegisterSimpleDetailViewModel(
+            WrapAndRegisterViewModelAsDetailViewModel(
                 new TestScreenViewModel(
+                    "AOE",
                     "WOLOLOLOLOLOLOLO"
-                ),
-                fullName: "Age of Empires",
-                shortName: "AOE"
+                )
             );
-            RegisterSimpleDetailViewModel(
+            WrapAndRegisterViewModelAsDetailViewModel(
                 new TestScreenViewModel(
+                    "Videos",
                     "Videos,Videos,Videos ..."
-                ),
-                fullName: "Alle Videos",
-                shortName: "Videos"
+                )
+            );
+        }
+
+        private void WrapAndRegisterViewModelAsDetailViewModel(IScreen screen)
+        {
+            RegisterDetailViewModel(
+                new SimpleDetailViewModel(screen)
             );
         }
     }
