@@ -1,7 +1,7 @@
 assembly-versioning-scheme: MajorMinorPatch
 branches:
   master:
-    mode: ContinuousDeployment
+    mode: ContinuousDelivery
     tag: ''
     increment: Minor
     prevent-increment-of-merged-branch-version: false
@@ -13,10 +13,10 @@ branches:
     prevent-increment-of-merged-branch-version: false
     track-merge-target: true
   release[/-]:
-    mode: ContinuousDeployment
+    mode: ContinuousDelivery
     tag: RC
   features[/-]: 
-    mode: ContinuousDeployment
+    mode: ContinuousDelivery
     tag: useBranchName
     increment: none
     prevent-increment-of-merged-branch-version: false
