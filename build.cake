@@ -13,9 +13,21 @@ Setup(ctx =>
     );
 });
 
-
+Task("AppVeyor-UpdateBuildVersion") 
+.WithCriteria(() => BuildSystem.IsRunningOnAppVeyor) 
+.Does(() => {
+    Information($"Updating AppVeyor build version to {Settings.Version.SemVer}.");
+    BuildSystem.AppVeyor.UpdateBuildVersion(Settings.Version.SemVer);
+})
+.ReportError(exception =>
+{  
+    Warning($"Build with version {Settings.Version.SemVer} already exists.");
+    Information("Trying to update to fallback Version");
+    BuildSystem.AppVeyor.UpdateBuildVersion(Settings.Version.InformationalVersion);
+});
 
 Task("Restore-Dependencies")
+.IsDependentOn("AppVeyor-UpdateBuildVersion")
 .Does(() => {
     NuGetRestore("./src/Videothek.sln");
 });
@@ -60,13 +72,12 @@ Task("Package")
         Zip(artifactFolder.FullPath,Settings.Directories.BinaryOutputDirectory.CombineWithFilePath(artifactFolder.GetDirectoryName() + ".zip")); 
     } 
 }); 
- 
+
 Task("AppVeyor") 
 .WithCriteria(() => BuildSystem.IsRunningOnAppVeyor) 
 .IsDependentOn("Package") 
 .Does(() => 
-{ 
-    BuildSystem.AppVeyor.UpdateBuildVersion(Settings.Version.SemVer);
+{     
     foreach(var artifactZip in GetFiles(Settings.Directories.BinaryOutputDirectory + "/*.zip")){ 
         Information($"Uploading { artifactZip } to AppVeyor as '{ artifactZip.GetFilename()}'."); 
         BuildSystem.AppVeyor.UploadArtifact(artifactZip);
