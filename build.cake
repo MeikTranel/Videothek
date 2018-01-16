@@ -19,8 +19,9 @@ Task("AppVeyor-UpdateBuildVersion")
     Information($"Updating AppVeyor build version to {Settings.Version.SemVer}.");
     BuildSystem.AppVeyor.UpdateBuildVersion(Settings.Version.SemVer);
 })
-.ReportError(exception =>
+.OnError(exception =>
 {  
+    Debug(exception);
     Warning($"Build with version {Settings.Version.SemVer} already exists.");
     Information("Trying to update to fallback Version");
     BuildSystem.AppVeyor.UpdateBuildVersion(Settings.Version.InformationalVersion);
