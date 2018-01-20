@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using MahApps.Metro.Controls;
-using System.Windows;
-using Stylet;
+﻿using System.Windows;
 using Videothek.Terminal.ViewModels;
 
 namespace Videothek.Terminal.Views
@@ -9,7 +6,7 @@ namespace Videothek.Terminal.Views
     /// <summary>
     /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginView : MetroWindow
+    public partial class LoginView
     {
         public LoginView()
         {

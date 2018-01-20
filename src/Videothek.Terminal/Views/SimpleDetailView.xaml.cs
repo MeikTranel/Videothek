@@ -1,11 +1,11 @@
 ﻿namespace Videothek.Terminal.Views
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for SimpleDetailView.xaml
     /// </summary>
-    public partial class MainView
+    public partial class SimpleDetailView
     {
-        public MainView()
+        public SimpleDetailView()
         {
             InitializeComponent();
         }

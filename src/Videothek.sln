@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Videothek.Core", "Videothek
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videothek.Terminal", "Videothek.Terminal\Videothek.Terminal.csproj", "{1518B89A-C664-4D6C-AC1A-5E8083A4F6CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videothek.Authentication", "Videothek.Authentication\Videothek.Authentication.csproj", "{00B677B5-23F6-4826-9324-A19E7EC0AB1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Videothek.Authentication", "Videothek.Authentication\Videothek.Authentication.csproj", "{00B677B5-23F6-4826-9324-A19E7EC0AB1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videothek.Persistence", "Videothek.Persistence\Videothek.Persistence.csproj", "{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Videothek.Persistence", "Videothek.Persistence\Videothek.Persistence.csproj", "{91BBDAAA-E3A8-478E-A350-9EA29F7B1D7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

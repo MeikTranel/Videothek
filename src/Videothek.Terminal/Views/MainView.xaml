@@ -1,14 +1,29 @@
-﻿<Window x:Class="Videothek.Terminal.Views.MainView"
+﻿<Metro:MetroWindow x:Class="Videothek.Terminal.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Videothek.Terminal.Views"
         xmlns:VMs="clr-namespace:Videothek.Terminal.ViewModels"
+        xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:stylet="https://github.com/canton7/Stylet"
         mc:Ignorable="d" 
         d:DataContext="{d:DesignInstance VMs:MainViewModel}"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView" Height="450" Width="800"
+        BorderThickness="0" 
+        GlowBrush="Black"
+        ResizeMode="CanResizeWithGrip"
+        WindowTransitionsEnabled="False"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBlock Text="{Binding Session.AuthenticationToken}" />
+        <Metro:HamburgerMenu x:Name="HamburgerMenuControl"
+                             ItemsSource="{Binding Items}"
+                             DisplayMode="CompactInline"
+                             ItemCommand="{stylet:Action DoActivateDetailViewModel}" 
+                             ItemCommandParameter="{Binding SelectedItem, ElementName=HamburgerMenuControl}"
+                             >
+            <Metro:HamburgerMenu.Content>
+                <ContentControl stylet:View.Model="{Binding ActiveItem}" />
+            </Metro:HamburgerMenu.Content>
+        </Metro:HamburgerMenu>
     </Grid>
-</Window>
+</Metro:MetroWindow>

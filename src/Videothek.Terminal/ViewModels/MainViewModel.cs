@@ -1,10 +1,31 @@
 ﻿using Stylet;
-using Videothek.Core.Authorization;
+using Videothek.Terminal.MasterDetail;
 
 namespace Videothek.Terminal.ViewModels
 {
-    public class MainViewModel : Screen
+    public class MainViewModel : MasterViewModel<IScreen>
     {
-        public Session Session { get; set; }
+        public MainViewModel()
+        {
+            WrapAndRegisterViewModelAsDetailViewModel(
+                new TestScreenViewModel(
+                    "AOE",
+                    "WOLOLOLOLOLOLOLO"
+                )
+            );
+            WrapAndRegisterViewModelAsDetailViewModel(
+                new TestScreenViewModel(
+                    "Videos",
+                    "Videos,Videos,Videos ..."
+                )
+            );
+        }
+
+        private void WrapAndRegisterViewModelAsDetailViewModel(IScreen screen)
+        {
+            RegisterDetailViewModel(
+                new SimpleDetailViewModel(screen)
+            );
+        }
     }
 }
