@@ -1,6 +1,8 @@
-﻿namespace Videothek.Core
+﻿using Videothek.Persistence;
+
+namespace Videothek.Core
 {
-    public class User
+    public class User : IEntity
     {
         public User(int id, string name)
         {
