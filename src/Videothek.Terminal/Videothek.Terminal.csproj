@@ -70,24 +70,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\HostViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\SimpleDetailViewModel.cs" />
     <Compile Include="ViewModels\TestScreenViewModel.cs" />
-    <Compile Include="Views\SimpleDetailView.xaml.cs">
-      <DependentUpon>SimpleDetailView.xaml</DependentUpon>
+    <Compile Include="Views\HostView.xaml.cs">
+      <DependentUpon>HostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MasterDetail\IDetailViewModel.cs" />
-    <Compile Include="MasterDetail\MasterViewModel.cs" />
     <Compile Include="Views\TestScreenView.xaml.cs">
       <DependentUpon>TestScreenView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ViewModels\ICanRequestRootViewModelExchange.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -123,9 +120,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SimpleDetailView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\HostView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
@@ -142,7 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Videothek.Authentication\Videothek.Authentication.csproj">
-      <Project>{00B677B5-23F6-4826-9324-A19E7EC0AB1A}</Project>
+      <Project>{00b677b5-23f6-4826-9324-a19e7ec0ab1a}</Project>
       <Name>Videothek.Authentication</Name>
     </ProjectReference>
     <ProjectReference Include="..\Videothek.Core\Videothek.Core.csproj">
