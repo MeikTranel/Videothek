@@ -14,3 +14,8 @@ public class BuildSettings {
         Version = version;
     }
 }
+
+public static BuildSettings CreateBuildSettings(ICakeContext context,GitVersion version,DirectoryPath baseOutputDirectory){
+    context.Information($"Initializing build settings with version: {version.SemVer}");
+    return new BuildSettings(version,baseOutputDirectory);
+}

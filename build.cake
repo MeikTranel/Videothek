@@ -7,9 +7,10 @@ var target = Argument("target", "Package");
 BuildSettings Settings;
 Setup(ctx =>
 {
-    Settings = new BuildSettings(
-       GitVersion(),
-       DirectoryPath.FromString("./out")
+    Settings = CreateBuildSettings(
+        Context,
+        GitVersion(),
+        DirectoryPath.FromString("./out")
     );
 });
 
