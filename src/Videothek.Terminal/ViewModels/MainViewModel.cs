@@ -1,4 +1,6 @@
 ﻿using Stylet;
+using Videothek.Core;
+using Videothek.Terminal.MasterDetail;
 
 namespace Videothek.Terminal.ViewModels
 {
@@ -6,16 +8,15 @@ namespace Videothek.Terminal.ViewModels
     {
         public MainViewModel()
         {
-            RegisterDetailViewModel(
-                new TestScreenViewModel(
-                    "AOE",
-                    "WOLOLOLOLOLOLOLO"
-                )
-            );
-            RegisterDetailViewModel(
-                new TestScreenViewModel(
-                    "Videos",
-                    "Videos,Videos,Videos ..."
+            WrapAndRegisterViewModelAsDetailViewModel(
+                new VideoViewModel(
+                    new Video()
+                    {
+                        Name = "Boondock Saints",
+                        Availability = 123,
+                        Price  = 13.37f,
+                        CoverImageLocation = ""
+                    }
                 )
             );
         }
