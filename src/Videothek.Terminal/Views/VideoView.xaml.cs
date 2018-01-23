@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Videothek.Terminal.Views
 {
     /// <summary>
-    /// Interaction logic for TestScreenView.xaml
+    /// Interaction logic for VideoView.xaml
     /// </summary>
-    public partial class TestScreenView : UserControl
+    public partial class VideoView : UserControl
     {
-        public TestScreenView()
+        public VideoView()
         {
             InitializeComponent();
         }
