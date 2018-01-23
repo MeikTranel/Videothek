@@ -1,6 +1,5 @@
 ﻿using Stylet;
 using Videothek.Core;
-using Videothek.Terminal.MasterDetail;
 
 namespace Videothek.Terminal.ViewModels
 {
@@ -8,7 +7,7 @@ namespace Videothek.Terminal.ViewModels
     {
         public MainViewModel()
         {
-            WrapAndRegisterViewModelAsDetailViewModel(
+            RegisterDetailViewModel(
                 new VideoViewModel(
                     new Video()
                     {

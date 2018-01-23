@@ -73,7 +73,6 @@
     <Compile Include="ViewModels\HostViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\VideoViewModel.cs" />
-    <Compile Include="ViewModels\TestScreenViewModel.cs" />
     <Compile Include="Views\HostView.xaml.cs">
       <DependentUpon>HostView.xaml</DependentUpon>
     </Compile>
@@ -82,8 +81,6 @@
     </Compile>
     <Compile Include="Views\VideoView.xaml.cs">
       <DependentUpon>VideoView.xaml</DependentUpon>
-    <Compile Include="Views\TestScreenView.xaml.cs">
-      <DependentUpon>TestScreenView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -124,18 +121,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-      <SubType>Designer</SubType>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-      <Generator>MSBuild:Compile</Generator>
-    <Page Include="Resources\IconsNonShared.xaml">
-    </Page>
-    <Page Include="Views\SimpleDetailView.xaml">
+    <Page Include="Views\HostView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
