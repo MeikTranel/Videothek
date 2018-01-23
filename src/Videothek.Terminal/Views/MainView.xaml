@@ -1,4 +1,4 @@
-﻿<Metro:MetroWindow x:Class="Videothek.Terminal.Views.MainView"
+﻿<UserControl x:Class="Videothek.Terminal.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,12 +8,7 @@
         xmlns:stylet="https://github.com/canton7/Stylet"
         mc:Ignorable="d" 
         d:DataContext="{d:DesignInstance VMs:MainViewModel}"
-        Title="MainView" Height="450" Width="800"
-        BorderThickness="0" 
-        GlowBrush="Black"
-        ResizeMode="CanResizeWithGrip"
-        WindowTransitionsEnabled="False"
-        WindowStartupLocation="CenterScreen">
+        d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Metro:HamburgerMenu x:Name="HamburgerMenuControl"
                              ItemsSource="{Binding Items}"
@@ -22,8 +17,24 @@
                              ItemCommandParameter="{Binding SelectedItem, ElementName=HamburgerMenuControl}"
                              >
             <Metro:HamburgerMenu.Content>
-                <ContentControl stylet:View.Model="{Binding ActiveItem}" />
+                <Grid x:Name="TheContentGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="8*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0"
+                            Background="{StaticResource MahApps.Metro.HamburgerMenu.PaneBackgroundBrush}"
+                            >
+                        <TextBlock x:Name="Header"
+                                   FontSize="24"
+                                   Text="{Binding ActiveItem.Name}"
+                                   Foreground="{StaticResource MahApps.Metro.HamburgerMenu.PaneForegroundBrush}"
+                        />
+                    </Border>
+                    <ContentControl Grid.Row="1"
+                                    stylet:View.Model="{Binding ViewModel}"/>
+                </Grid>
             </Metro:HamburgerMenu.Content>
         </Metro:HamburgerMenu>
     </Grid>
-</Metro:MetroWindow>
+</UserControl>

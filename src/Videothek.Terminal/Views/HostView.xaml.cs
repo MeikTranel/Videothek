@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace Videothek.Terminal.Views
+﻿namespace Videothek.Terminal.Views
 {
     /// <summary>
-    /// Interaction logic for ShellView.xaml
+    /// Interaction logic for HostView.xaml
     /// </summary>
-    public partial class HostView : Window
+    public partial class HostView 
     {
         public HostView()
         {

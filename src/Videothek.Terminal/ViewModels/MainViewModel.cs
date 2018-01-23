@@ -1,31 +1,35 @@
 ﻿using Stylet;
-using Videothek.Terminal.MasterDetail;
+using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
 {
-    public class MainViewModel : MasterViewModel<IScreen>
+    public class MainViewModel : Conductor<IScreen>.Collection.OneActive
     {
         public MainViewModel()
         {
-            WrapAndRegisterViewModelAsDetailViewModel(
-                new TestScreenViewModel(
-                    "AOE",
-                    "WOLOLOLOLOLOLOLO"
-                )
-            );
-            WrapAndRegisterViewModelAsDetailViewModel(
-                new TestScreenViewModel(
-                    "Videos",
-                    "Videos,Videos,Videos ..."
+            RegisterDetailViewModel(
+                new VideoViewModel(
+                    new Video()
+                    {
+                        Name = "Boondock Saints",
+                        Availability = 123,
+                        Price  = 13.37f,
+                        CoverImageLocation = ""
+                    }
                 )
             );
         }
 
-        private void WrapAndRegisterViewModelAsDetailViewModel(IScreen screen)
+
+        public void DoActivateDetailViewModel(IScreen detailViewModel)
         {
-            RegisterDetailViewModel(
-                new SimpleDetailViewModel(screen)
-            );
+            this.ActivateItem(detailViewModel);
+        }
+
+
+        private void RegisterDetailViewModel(IScreen detailViewModel)
+        {
+            this.Items.Add(detailViewModel);
         }
     }
 }
