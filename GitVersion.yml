@@ -1,23 +1,20 @@
 assembly-versioning-scheme: MajorMinorPatch
 tag-prefix: '[vV]'
+mode: ContinuousDeployment
 branches:
   master:
-    mode: ContinuousDelivery
     tag: ''
     increment: Minor
     prevent-increment-of-merged-branch-version: true
     track-merge-target: false  
   develop:
-    mode: ContinuousDeployment
     tag: Pre
     increment: Patch
     prevent-increment-of-merged-branch-version: false
     track-merge-target: true
   release[/-]:
-    mode: ContinuousDelivery
     tag: RC
-  features[/-]: 
-    mode: ContinuousDelivery
+  features[/-]:
     tag: useBranchName
     increment: none
     prevent-increment-of-merged-branch-version: false
