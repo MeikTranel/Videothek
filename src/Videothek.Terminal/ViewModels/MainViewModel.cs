@@ -1,19 +1,18 @@
 ﻿using Stylet;
-using Videothek.Terminal.MasterDetail;
 
 namespace Videothek.Terminal.ViewModels
 {
-    public class MainViewModel : MasterViewModel<IScreen>
+    public class MainViewModel : Conductor<IScreen>.Collection.OneActive
     {
         public MainViewModel()
         {
-            WrapAndRegisterViewModelAsDetailViewModel(
+            RegisterDetailViewModel(
                 new TestScreenViewModel(
                     "AOE",
                     "WOLOLOLOLOLOLOLO"
                 )
             );
-            WrapAndRegisterViewModelAsDetailViewModel(
+            RegisterDetailViewModel(
                 new TestScreenViewModel(
                     "Videos",
                     "Videos,Videos,Videos ..."
@@ -21,11 +20,16 @@ namespace Videothek.Terminal.ViewModels
             );
         }
 
-        private void WrapAndRegisterViewModelAsDetailViewModel(IScreen screen)
+
+        public void DoActivateDetailViewModel(IScreen detailViewModel)
         {
-            RegisterDetailViewModel(
-                new SimpleDetailViewModel(screen)
-            );
+            this.ActivateItem(detailViewModel);
+        }
+
+
+        private void RegisterDetailViewModel(IScreen detailViewModel)
+        {
+            this.Items.Add(detailViewModel);
         }
     }
 }

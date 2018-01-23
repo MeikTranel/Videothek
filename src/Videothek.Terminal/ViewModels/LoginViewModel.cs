@@ -6,7 +6,7 @@ using Videothek.Core.Authorization;
 
 namespace Videothek.Terminal.ViewModels
 {
-    public class LoginViewModel : Screen,ICanRequestRootViewModelExchange
+    public class LoginViewModel : Screen
     {
         private readonly ISessionProvider _sessionProvider;
 
@@ -19,8 +19,7 @@ namespace Videothek.Terminal.ViewModels
 
         public string Username { get; set; }
         public SecureString Password { get; set; }
-
-        public event EventHandler<object> RootVMExchangeRequested;
+        
 
         public void DoLogin()
         {
@@ -28,20 +27,15 @@ namespace Videothek.Terminal.ViewModels
             {
                 var session = _sessionProvider.RequestSession(Username,Password);
 
-                RequestVMExchange(
-                    new MainViewModel()
-                );
+                LoginSucceeded?.Invoke(this, session);
             }
             catch (AuthenticationFailedException e)
             {
                 Console.WriteLine(e.Message);
             }
-
         }
 
-        public void RequestVMExchange(object screen)
-        {
-            RootVMExchangeRequested?.Invoke(this, screen);
-        }
+        public event EventHandler<Session> LoginSucceeded;
+
     }
 }

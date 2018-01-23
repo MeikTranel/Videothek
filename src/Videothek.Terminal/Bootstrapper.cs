@@ -9,7 +9,7 @@ using Videothek.Terminal.ViewModels;
 
 namespace Videothek.Terminal
 {
-    public class Bootstrapper : Bootstrapper<LoginViewModel>
+    public class Bootstrapper : Bootstrapper<HostViewModel>
     {
     
         protected override void ConfigureIoC(IStyletIoCBuilder builder)
@@ -32,29 +32,8 @@ namespace Videothek.Terminal
             builder.Bind<ISessionProvider>()
                 .To<SessionProvider>()
                 .InSingletonScope();
+            
         }
 
-        protected override void DisplayRootView(object rootViewModel)
-        {
-            if (rootViewModel is ICanRequestRootViewModelExchange interchangeableRootVM)
-                HandleInterchangeableRootVM(interchangeableRootVM);
-
-            base.DisplayRootView(rootViewModel);
-        }
-
-        private void HandleInterchangeableRootVM(ICanRequestRootViewModelExchange interchangeableRootVM)
-        {
-            if (RootViewModel is ICanRequestRootViewModelExchange interchangeableCurrentRootVM)
-                interchangeableCurrentRootVM.RootVMExchangeRequested -= HandleRootVMExchangeRequested;
-
-            interchangeableRootVM.RootVMExchangeRequested += HandleRootVMExchangeRequested;
-        }
-
-        private void HandleRootVMExchangeRequested(object sender, object e)
-        {
-            var windowToBeClosed = GetActiveWindow();
-            DisplayRootView(e);
-            windowToBeClosed.Close();
-        }
     }
 }
