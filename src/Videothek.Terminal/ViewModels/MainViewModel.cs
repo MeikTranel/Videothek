@@ -18,6 +18,15 @@ namespace Videothek.Terminal.ViewModels
                     }
                 )
             );
+            RegisterDetailViewModel(
+                new BalanceViewModel(
+                   new Balance()
+                   {
+                       Name="Charge your balance",
+
+                   }
+                )
+            );
         }
 
 
