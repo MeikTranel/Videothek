@@ -4,21 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Videothek.Authentication;
-using Videothek.Core.Authorization;
 using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
 {
-    public class BalanceViewModel:Screen
+    class BalanceViewModel:Screen
     {
-      private Balance _balance;
-      public BalanceViewModel(Balance balance)
+        private  User _user;
+        
+        public BalanceViewModel(User user)
         {
-            _balance = balance ?? throw new ArgumentException(nameof(balance));
+            _user = user ?? throw new ArgumentNullException(nameof(user));
+           
         }
-        public string Name => _balance.Name;
-        public string IBAN => _balance.IBAN;
-        public float Betrag => _balance.Betrag;
+
+        public float Amount => _user.Balance;  
     }
 }

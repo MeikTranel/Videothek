@@ -12,17 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Videothek.Terminal.ViewModels;
 
 namespace Videothek.Terminal.Views
 {
     /// <summary>
-    /// Interaktionslogik für BalanceViewModel.xaml
+    /// Interaktionslogik für BalanceView.xaml
     /// </summary>
-    public partial class BalanceViewModel : UserControl
+    public partial class BalanceView : UserControl
     {
-        public BalanceViewModel()
+        public BalanceView()
         {
             InitializeComponent();
+        }
+
+        private void btnBestetigen_Click(object sender, RoutedEventArgs e)
+        {
+            sender.ToString();
+            var bla = DataContext as BalanceViewModel;
         }
     }
 }

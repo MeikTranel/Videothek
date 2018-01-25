@@ -7,6 +7,14 @@ namespace Videothek.Terminal.ViewModels
     {
         public MainViewModel()
         {
+           RegisterDetailViewModel(
+             new BalanceViewModel(
+                 new User(1, "Meik")
+                 {
+
+                 }
+             )
+           );
             RegisterDetailViewModel(
                 new VideoViewModel(
                     new Video()
@@ -18,15 +26,8 @@ namespace Videothek.Terminal.ViewModels
                     }
                 )
             );
-            RegisterDetailViewModel(
-                new BalanceViewModel(
-                   new Balance()
-                   {
-                       Name="Charge your balance",
+ 
 
-                   }
-                )
-            );
         }
 
 

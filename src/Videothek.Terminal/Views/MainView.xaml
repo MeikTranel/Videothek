@@ -32,7 +32,7 @@
                         />
                     </Border>
                     <ContentControl Grid.Row="1"
-                                    stylet:View.Model="{Binding ViewModel}"/>
+                                    stylet:View.Model="{Binding ActiveItem}"/>
                 </Grid>
             </Metro:HamburgerMenu.Content>
         </Metro:HamburgerMenu>
