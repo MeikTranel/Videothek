@@ -1,16 +1,12 @@
 ﻿using Stylet;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
 {
     class BalanceViewModel:Screen
     {
-        private  User _user;
+        private readonly User _user;
         
         public BalanceViewModel(User user)
         {
@@ -18,6 +14,10 @@ namespace Videothek.Terminal.ViewModels
            
         }
 
-        public float Amount => _user.Balance;  
+        public float Balance
+        {
+            get => _user.Balance;
+            set => _user.Balance = value;
+        }
     }
 }
