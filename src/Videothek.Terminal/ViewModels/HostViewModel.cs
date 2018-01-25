@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Stylet;
 using StyletIoC;
+using Videothek.Core;
 using Videothek.Core.Authorization;
 
 namespace Videothek.Terminal.ViewModels
