@@ -1,4 +1,5 @@
 ﻿using Stylet;
+using System.Collections.ObjectModel;
 using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels

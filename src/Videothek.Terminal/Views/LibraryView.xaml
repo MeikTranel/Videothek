@@ -7,11 +7,17 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance VMs:LibraryViewModel}"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="itemstyle" TargetType="{x:Type ListViewItem}">
+            <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <ListView ItemsSource="{Binding VideoLibrary, UpdateSourceTrigger=PropertyChanged , Mode=TwoWay}">
+        <ListView ItemContainerStyle="{StaticResource itemstyle}" ItemsSource="{Binding VideoLibrary, UpdateSourceTrigger=PropertyChanged , Mode=TwoWay}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="200" Header="Name" DisplayMemberBinding="{Binding Path = Name}"/>
+                    <GridViewColumn Width="200" Header="Price" DisplayMemberBinding="{Binding Path = Price}"/>
                 </GridView>
             </ListView.View>
         </ListView>
