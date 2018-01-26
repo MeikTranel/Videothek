@@ -13,9 +13,6 @@ namespace Videothek.Terminal.Views
             InitializeComponent();
         }
 
-        private void btnAccept_Click(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine(sender);
-        }
+ 
     }
 }

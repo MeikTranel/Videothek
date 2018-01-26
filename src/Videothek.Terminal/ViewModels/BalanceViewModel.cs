@@ -13,11 +13,38 @@ namespace Videothek.Terminal.ViewModels
             _user = user ?? throw new ArgumentNullException(nameof(user));
            
         }
+        private float _amount;
 
+        public float Amount
+        {
+            get { return _amount; }
+            set
+            {
+                _amount = value;
+               
+            }
+        }
         public float Balance
         {
-            get => _user.Balance;
-            set => _user.Balance = value;
+            get
+            {
+                return _user.Balance;
+            }
+            set
+            {
+                _user.Balance = value;
+                NotifyOfPropertyChange("Balance");
+            }
+        }
+
+        //public float Balance
+        //{
+        //    get => _user.Balance;
+        //    set => _user.Balance = value;
+        //}
+         public void DoAccept()
+        {
+            Balance += Amount;
         }
     }
 }

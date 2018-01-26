@@ -7,9 +7,18 @@ namespace Videothek.Terminal.ViewModels
     {
         public MainViewModel()
         {
-           RegisterDetailViewModel(
-             new BalanceViewModel(new User(1, "Meik"))
+            RegisterDetailViewModel(
+              new BalanceViewModel(new User(1, "Meik"))
+              {
+                  Balance = 1.1f
+             }
            );
+            RegisterDetailViewModel(
+              new BalanceViewModel(new User(2, "Admin"))
+              {
+                  Balance = 2.1f
+              }
+            );
 
             RegisterDetailViewModel(
                 new VideoViewModel(

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:VMs="clr-namespace:Videothek.Terminal.ViewModels"
              mc:Ignorable="d" 
+             xmlns:s="https://github.com/canton7/Stylet"
              d:DataContext="{d:DesignInstance VMs:BalanceViewModel}"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -12,23 +13,30 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid x:Name="BalanceGrid" Grid.Row="0">
             <StackPanel>
                 <Label Content="Amount"/>
-                <TextBox x:Name="txtBalance" Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox x:Name="txtBalance" Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>        
         <Grid x:Name="IBANGrid" Grid.Row="1">
             <StackPanel>
                 <Label Content="IBAN"/>
-                <TextBox x:Name="txtIBAN"/>
+                <TextBox x:Name="txtIBAN" />
             </StackPanel>
         </Grid>
         <Grid x:Name="ConfirmationGrid" Grid.Row="2">
             <StackPanel>
-                <Button x:Name="btnAccept" Content="Accept" Click="btnAccept_Click"/>
+                <Button x:Name="btnAccept" Content="Accept"  Command="{s:Action DoAccept}"/>
             </StackPanel>
+        </Grid>
+        <Grid x:Name="BalancGrid" Grid.Row="3">
+            <DockPanel>
+                <TextBlock Text="your current balance  :   " />
+                <TextBlock Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
         </Grid>
 
 

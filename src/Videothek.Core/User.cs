@@ -8,7 +8,7 @@ namespace Videothek.Core
         {
             ID = id;
             Name = name;
-            Balance = 5.2f;
+            Balance = 0;
         }
 
         public int ID { get; }
