@@ -11,7 +11,7 @@ namespace Videothek.Core
 
         public UserRepository(IQueryableDataProvider<User> userDataProvider)
         {
-            _userDataProvider = userDataProvider ?? throw new ArgumentNullException("Cannot construct UserRepository without its dependency userDataProvider");
+            _userDataProvider = userDataProvider ?? throw new ArgumentNullException(nameof(userDataProvider));
         }
 
         public User Get(string key)

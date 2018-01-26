@@ -14,7 +14,7 @@ namespace Videothek.Terminal.ViewModels
         {
             _sessionProvider = authenticationProvider ?? throw new ArgumentNullException(nameof(authenticationProvider));
 
-            this.DisplayName = "Login";
+            DisplayName = "Login";
         }
 
         public string Username { get; set; }
@@ -37,5 +37,9 @@ namespace Videothek.Terminal.ViewModels
 
         public event EventHandler<Session> LoginSucceeded;
 
+        protected virtual void OnLoginSucceeded(Session e)
+        {
+            LoginSucceeded?.Invoke(this, e);
+        }
     }
 }

@@ -19,14 +19,14 @@ namespace Videothek.Terminal.ViewModels
         {
             var loginViewModel = new LoginViewModel(_iocContainer.Get<ISessionProvider>());
             loginViewModel.LoginSucceeded += LoginViewModel_LoginSucceeded;
-            this.ActivateItem(loginViewModel);
+            ActivateItem(loginViewModel);
         }
 
         private void LoginViewModel_LoginSucceeded(object sender, Session e)
         {
             UnsubscribeFromLoginViewModel((LoginViewModel)sender);
-            this.Clear();
-            this.ActivateItem(new MainViewModel());
+            Clear();
+            ActivateItem(new MainViewModel());
         }
 
         private void UnsubscribeFromLoginViewModel(LoginViewModel loginViewModel)
