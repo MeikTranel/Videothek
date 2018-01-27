@@ -46,6 +46,7 @@ namespace Videothek.Terminal.ViewModels
             set { _iBAN = value; }
         }
 
+
         public void DoAccept()
         {
             if (Amount > 0)
@@ -53,7 +54,7 @@ namespace Videothek.Terminal.ViewModels
                 Balance += Amount;
             }
             else
-                MessageBox.Show("Please enter the amount", "Your amount is 0 ",
+                MessageBox.Show("Please enter the amount", "Your amount is 0 ", MessageBoxButton.OKCancel,
                   MessageBoxImage.Exclamation);
 
         }
