@@ -24,7 +24,7 @@
         <Grid x:Name="IBANGrid" Grid.Row="1">
             <StackPanel>
                 <Label Content="IBAN"/>
-                <TextBox x:Name="txtIBAN" />
+                <TextBox x:Name="txtIBAN" Text="{Binding IBAN}" />
             </StackPanel>
         </Grid>
         <Grid x:Name="ConfirmationGrid" Grid.Row="2">
@@ -34,8 +34,9 @@
         </Grid>
         <Grid x:Name="BalancGrid" Grid.Row="3">
             <DockPanel>
-                <TextBlock Text="your current balance  :   " />
+                <TextBlock Text="your current balance is  :   " />
                 <TextBlock Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="$"/>
             </DockPanel>
         </Grid>
 

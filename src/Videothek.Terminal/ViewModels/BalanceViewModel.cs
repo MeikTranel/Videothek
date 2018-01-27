@@ -1,5 +1,6 @@
 ﻿using Stylet;
 using System;
+using System.Windows;
 using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
@@ -37,14 +38,24 @@ namespace Videothek.Terminal.ViewModels
             }
         }
 
-        //public float Balance
-        //{
-        //    get => _user.Balance;
-        //    set => _user.Balance = value;
-        //}
-         public void DoAccept()
+        private string _iBAN;
+
+        public string IBAN
         {
-            Balance += Amount;
+            get { return _iBAN; }
+            set { _iBAN = value; }
+        }
+
+        public void DoAccept()
+        {
+            if (Amount > 0)
+            {
+                Balance += Amount;
+            }
+            else
+                MessageBox.Show("Please enter the amount", "Your amount is 0 ",
+                  MessageBoxImage.Exclamation);
+
         }
     }
 }

@@ -10,13 +10,18 @@ namespace Videothek.Terminal.ViewModels
             RegisterDetailViewModel(
               new BalanceViewModel(new User(1, "Meik"))
               {
-                  Balance = 1.1f
+                  Balance = 1.1f,
+                  IBAN = "DE12XXXXXXXXXXXXXXXXXX15"
+                  
              }
            );
             RegisterDetailViewModel(
               new BalanceViewModel(new User(2, "Admin"))
               {
-                  Balance = 2.1f
+                  Balance = 2.1f,
+                  IBAN="DE13XXXXXXXXXXXXXXXXXXX16"
+
+
               }
             );
 
