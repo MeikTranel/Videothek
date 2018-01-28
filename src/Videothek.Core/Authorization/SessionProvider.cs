@@ -15,10 +15,27 @@ namespace Videothek.Core.Authorization
             _authenticationStrategy = authenticationStrategy ?? throw new ArgumentNullException(nameof(authenticationStrategy));
         }
 
-        public Session RequestSession(string userName, SecureString password)
+
+        private Session ActiveSession { get; set; }
+
+        public bool TryGetActiveSession(out Session session)
         {
-            var user = ResolveUserName(userName);
-            return new Session(
+            if (ActiveSession != null)
+            {
+                session = ActiveSession;
+                return true;
+            }
+            else
+            {
+                session = null;
+                return false;
+            }
+        }
+
+        public void CreateSession(string username, SecureString password)
+        {
+            var user = ResolveUserName(username);
+            this.ActiveSession = new Session(
                 user,
                 GenerateAuthenticationToken(user, password)
             );

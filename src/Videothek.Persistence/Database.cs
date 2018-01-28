@@ -30,7 +30,7 @@ namespace Videothek.Persistence
 
         private bool DatabaseAlreadyExists(string dbFilePath)
         {
-            return !File.Exists(dbFilePath);
+            return File.Exists(dbFilePath);
         }
 
         private void InitializeDatabase()
@@ -51,6 +51,28 @@ namespace Videothek.Persistence
                 SQLiteConnection.Insert(new UserEntity()
                 {
                     Name = "Meik"
+                });
+
+                SQLiteConnection.Insert(new VideoEntity()
+                {
+                    Name = "Social Network",
+                    Availability = 123,
+                    Price = 100f,
+                    CoverImageLocation = ""
+                });
+                SQLiteConnection.Insert(new VideoEntity()
+                {
+                    Name = "Spongebob Squarepants",
+                    Availability = 123,
+                    Price = 3.5f,
+                    CoverImageLocation = ""
+                });
+                SQLiteConnection.Insert(new VideoEntity()
+                {
+                    Name = "Star Wars IV",
+                    Availability = 123,
+                    Price = 3.5f,
+                    CoverImageLocation = ""
                 });
             });
         }

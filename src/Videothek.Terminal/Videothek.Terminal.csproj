@@ -96,10 +96,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\HostViewModel.cs" />
+    <Compile Include="ViewModels\LibraryViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\VideoViewModel.cs" />
     <Compile Include="Views\HostView.xaml.cs">
       <DependentUpon>HostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LibraryView.xaml.cs">
+      <DependentUpon>LibraryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -146,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LibraryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

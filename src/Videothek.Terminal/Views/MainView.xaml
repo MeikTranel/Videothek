@@ -7,6 +7,7 @@
         xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:stylet="https://github.com/canton7/Stylet"
         xmlns:IconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Language="de-DE"
         mc:Ignorable="d" 
         d:DataContext="{d:DesignInstance VMs:MainViewModel}"
         d:DesignHeight="450" d:DesignWidth="800">
@@ -44,15 +45,10 @@
             <!--  Items  -->
             <Metro:HamburgerMenu.ItemsSource>
                 <Metro:HamburgerMenuItemCollection>
-                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=Video}"
+                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=Library}"
                                                  Label="Home"
                                                  Command="{stylet:Action ActivateScreen}"
-                                                 CommandParameter="{Binding VideoViewModel}">
-                    </Metro:HamburgerMenuIconItem>
-
-
-                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=AccountCircle}"
-                                                    Label="Private">
+                                                 CommandParameter="{Binding LibraryViewModel}">
                     </Metro:HamburgerMenuIconItem>
 
                 </Metro:HamburgerMenuItemCollection>
@@ -62,7 +58,7 @@
             <Metro:HamburgerMenu.Content>
                 <Grid x:Name="TheContentGrid">
                     <ContentControl x:Name="TheContent"
-                                        stylet:View.Model="{Binding ActiveItem}" Background="Beige" />
+                                        stylet:View.Model="{Binding ActiveItem}" />
                 </Grid>
             </Metro:HamburgerMenu.Content>
         </Metro:HamburgerMenu>
