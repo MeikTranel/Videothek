@@ -41,6 +41,8 @@ namespace Videothek.Terminal
                 .ToSelf();
             builder.Bind<VideoService>()
                 .ToSelf();
+            builder.Bind<RentalService>()
+                .ToSelf();
         }
 
         protected override void Configure()

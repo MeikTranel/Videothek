@@ -1,6 +1,5 @@
 ﻿using System;
 using Stylet;
-using System.Collections.ObjectModel;
 using StyletIoC;
 using Videothek.Core;
 
@@ -14,7 +13,7 @@ namespace Videothek.Terminal.ViewModels
         {
             _container = container ?? throw new ArgumentNullException(nameof(container));
 
-            LibraryViewModel = new LibraryViewModel(_container.Get<VideoService>());
+            LibraryViewModel = new LibraryViewModel(_container);
         }
 
         public void ActivateScreen(Screen screen)

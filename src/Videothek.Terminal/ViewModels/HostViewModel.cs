@@ -22,7 +22,7 @@ namespace Videothek.Terminal.ViewModels
             ActivateItem(loginViewModel);
         }
 
-        private void LoginViewModel_LoginSucceeded(object sender, Session e)
+        private void LoginViewModel_LoginSucceeded(object sender,EventArgs dontUseThisItsNullFuckOff)
         {
             UnsubscribeFromLoginViewModel((LoginViewModel)sender);
             Clear();

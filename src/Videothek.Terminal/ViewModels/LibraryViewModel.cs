@@ -1,13 +1,14 @@
 ﻿using Stylet;
 using System;
 using System.Collections.ObjectModel;
+using StyletIoC;
 using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
 {
     public class LibraryViewModel : Screen
     {
-        private readonly VideoService _videoService;
+        private readonly IContainer _container;
 
 
         private Conductor<IScreen>.Collection.OneActive HostConductor =>
@@ -15,9 +16,9 @@ namespace Videothek.Terminal.ViewModels
 
 
 
-        public LibraryViewModel(VideoService videoService)
+        public LibraryViewModel(IContainer container)
         {
-            _videoService = videoService;
+            _container = container ?? throw new ArgumentNullException(nameof(container));
             LoadVideos();
         }
 
@@ -37,10 +38,10 @@ namespace Videothek.Terminal.ViewModels
         public void LoadVideos()
         {
             ObservableCollection<VideoViewModel> videoViewModels = new ObservableCollection<VideoViewModel>();
-            var videos = _videoService.FetchAllVideos();
+            var videos = _container.Get<VideoService>().FetchAllVideos();
             foreach (var video in videos)
             {
-                videoViewModels.Add(new VideoViewModel(video));
+                videoViewModels.Add(new VideoViewModel(video,_container));
             }
             VideoLibrary = videoViewModels;
         }
