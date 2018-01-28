@@ -11,12 +11,14 @@ namespace Videothek.Core.Mapping
         {
             ConfigureUserMappings();
             ConfigurePenaltyMappings();
+            ConfigureVideoMappings();
+            ConfigureRentalMappings();
         }
 
         private void ConfigureUserMappings()
         {
-            CreateMap<UserEntity,User>();
             CreateMap<User, UserEntity>();
+            CreateMap<UserEntity, User>();
         }
 
         private void ConfigurePenaltyMappings()
@@ -26,6 +28,26 @@ namespace Videothek.Core.Mapping
                 .ForMember(
                     p => p.User,
                     opt => opt.ResolveUsing<ForeignKeyResolver<UserEntity,User>,int>(pE => pE.UserID)
+                );
+        }
+
+        private void ConfigureVideoMappings()
+        {
+            CreateMap<Video, VideoEntity>();
+            CreateMap<VideoEntity, Video>();
+        }
+
+        private void ConfigureRentalMappings()
+        {
+            CreateMap<Rental, RentalEntity>();
+            CreateMap<RentalEntity, Rental>()
+                .ForMember(
+                    r => r.User,
+                    opt => opt.ResolveUsing<ForeignKeyResolver<RentalEntity, User>, int>(rE => rE.UserID)
+                )
+                .ForMember(
+                    r => r.Video,
+                    opt => opt.ResolveUsing<ForeignKeyResolver<RentalEntity, Video>, int>(rE => rE.VideoID)
                 );
         }
     }

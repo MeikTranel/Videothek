@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Net.Mime;
 using SQLite;
 using Videothek.Persistence.Entities;
 
@@ -14,10 +16,21 @@ namespace Videothek.Persistence
             if (localDBStorageLocationStrategy == null)
                 throw new ArgumentNullException(nameof(localDBStorageLocationStrategy));
 
-            SQLiteConnection = new SQLiteConnection(
-                localDBStorageLocationStrategy.ProvideFilePath()    
-            );
-            InitializeDatabase();
+            var dbFilePath = localDBStorageLocationStrategy.ProvideFilePath();
+            if (DatabaseAlreadyExists(dbFilePath))
+            {
+                SQLiteConnection = new SQLiteConnection(dbFilePath);
+                InitializeDatabase();
+            } else {
+                SQLiteConnection = new SQLiteConnection(dbFilePath);
+                InitializeDatabase();
+                LoadInitialData();
+            }
+        }
+
+        private bool DatabaseAlreadyExists(string dbFilePath)
+        {
+            return !File.Exists(dbFilePath);
         }
 
         private void InitializeDatabase()
@@ -28,6 +41,18 @@ namespace Videothek.Persistence
             SQLiteConnection.CreateTable<RentalEntity>();
         }
 
-
+        private void LoadInitialData()
+        {
+            SQLiteConnection.RunInTransaction(() => {
+                SQLiteConnection.Insert(new UserEntity()
+                {
+                    Name = "Admin"
+                });
+                SQLiteConnection.Insert(new UserEntity()
+                {
+                    Name = "Meik"
+                });
+            });
+        }
     }
 }
