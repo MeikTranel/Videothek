@@ -1,9 +1,10 @@
-﻿using Stylet;
+﻿using AutoMapper;
+using Stylet;
 using StyletIoC;
 using Videothek.Authentication;
 using Videothek.Core;
 using Videothek.Core.Authorization;
-using Videothek.Core.Configuration;
+using Videothek.Core.Mapping;
 using Videothek.Persistence;
 using Videothek.Terminal.ViewModels;
 
@@ -18,22 +19,33 @@ namespace Videothek.Terminal
                 .To<DefaultAuthenticationStrategy>()
                 .InSingletonScope();
 
-            builder.Bind<IQueryableDataProvider<User>>()
-                .To<LazyUserDataProvider>()
-                .InSingletonScope();
-
-            builder.Bind<IQueryableDataProvider<Credentials>>()
-                .To<LazyCredentialDataProvider>()
-                .InSingletonScope();
-
-            builder.Bind<IRepository<User>>()
-                .To<UserRepository>();
-
             builder.Bind<ISessionProvider>()
                 .To<SessionProvider>()
                 .InSingletonScope();
-            
+
+            builder.Bind<ILocalDBStorageLocationStrategy>()
+                .ToInstance(
+                    new PortableLocalDBStorageLocationStrategy("Videothek.Production.sqlite")
+                );
+
+            builder.Bind<Database>()
+                .ToSelf();
+
+            builder.Bind(typeof(Repository<>))
+                .ToSelf();
+
+            builder.Bind<UserService>()
+                .ToSelf();
         }
 
+        protected override void Configure()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<EntityToBusinessObjectConfiguration>();
+                cfg.ConstructServicesUsing(t => Container.Get(t));
+            });
+            Mapper.AssertConfigurationIsValid();
+        }
     }
 }

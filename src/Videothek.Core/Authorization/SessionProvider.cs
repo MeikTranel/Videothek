@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Security;
 using Videothek.Authentication;
-using Videothek.Persistence;
 
 namespace Videothek.Core.Authorization
 {
     public class SessionProvider: ISessionProvider
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly UserService _userService;
         private readonly IAuthenticationStrategy _authenticationStrategy;
 
-        public SessionProvider(IRepository<User> userRepository,IAuthenticationStrategy authenticationStrategy)
+        public SessionProvider(UserService userService,IAuthenticationStrategy authenticationStrategy)
         {
-            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
             _authenticationStrategy = authenticationStrategy ?? throw new ArgumentNullException(nameof(authenticationStrategy));
         }
 
@@ -34,14 +33,11 @@ namespace Videothek.Core.Authorization
 
         private User ResolveUserName(string userName)
         {
-            try
-            {
-                return _userRepository.Get(userName);
-            }
-            catch (EntityNotFoundException<User>)
-            {
+            var userExists = _userService.TryGetUser(userName, out var user);
+            if (!userExists)
                 throw new AuthenticationFailedException($"Could not resolve UserName: {userName}");
-            }
+
+            return user;
         }
     }
 }
