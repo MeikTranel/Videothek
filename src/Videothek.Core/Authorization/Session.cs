@@ -10,8 +10,8 @@ namespace Videothek.Core.Authorization
 
         public Session(User user,AuthenticationToken authenticationToken)
         {
-            User = user ?? throw new ArgumentNullException("Cannot construct session without user.");
-            AuthenticationToken = authenticationToken ?? throw new ArgumentNullException("Cannot construct session without authenticationToken");
+            User = user ?? throw new ArgumentNullException(nameof(user));
+            AuthenticationToken = authenticationToken ?? throw new ArgumentNullException(nameof(authenticationToken));
         }
     }
 }

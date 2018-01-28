@@ -1,35 +1,26 @@
-﻿using Stylet;
+﻿using System;
+using Stylet;
+using StyletIoC;
 using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
 {
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive
     {
-        public MainViewModel()
+        private readonly IContainer _container;
+
+        public MainViewModel(IContainer container)
         {
-            RegisterDetailViewModel(
-                new VideoViewModel(
-                    new Video()
-                    {
-                        Name = "Boondock Saints",
-                        Availability = 123,
-                        Price  = 13.37f,
-                        CoverImageLocation = ""
-                    }
-                )
-            );
+            _container = container ?? throw new ArgumentNullException(nameof(container));
+
+            LibraryViewModel = new LibraryViewModel(_container);
         }
 
-
-        public void DoActivateDetailViewModel(IScreen detailViewModel)
+        public void ActivateScreen(Screen screen)
         {
-            this.ActivateItem(detailViewModel);
+            this.ActivateItem(screen);
         }
 
-
-        private void RegisterDetailViewModel(IScreen detailViewModel)
-        {
-            this.Items.Add(detailViewModel);
-        }
+        public LibraryViewModel LibraryViewModel { get; }
     }
 }
