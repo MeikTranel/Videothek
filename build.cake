@@ -31,7 +31,12 @@ Task("AppVeyor-UpdateBuildVersion")
 Task("Restore-Dependencies")
 .IsDependentOn("AppVeyor-UpdateBuildVersion")
 .Does(() => {
-    NuGetRestore("./src/Videothek.sln");
+    NuGetRestore(
+        "./src/Videothek.sln",
+        new NuGetRestoreSettings(){
+            Verbosity = NuGetVerbosity.Normal
+        }
+    );
 });
 
 Task("Compile")
@@ -82,7 +87,7 @@ Task("AppVeyor")
 .Does(() => 
 {     
     foreach(var artifactZip in GetFiles(Settings.Directories.BinaryOutputDirectory + "/*.zip")){ 
-        Information($"Uploading { artifactZip } to AppVeyor as '{ artifactZip.GetFilename()}'."); 
+        Information($"Uploading { artifactZip } to AppVeyor as '{ artifactZip.GetFilename() }'."); 
         BuildSystem.AppVeyor.UploadArtifact(artifactZip);
     } 
 });
