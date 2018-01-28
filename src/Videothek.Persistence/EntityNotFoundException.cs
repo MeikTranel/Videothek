@@ -2,7 +2,7 @@
 
 namespace Videothek.Persistence
 {
-    public class EntityNotFoundException<T> : Exception
+    public class EntityNotFoundException : Exception
     {
     }
 }
