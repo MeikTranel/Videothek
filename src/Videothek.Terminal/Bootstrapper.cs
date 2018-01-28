@@ -29,12 +29,17 @@ namespace Videothek.Terminal
                 );
 
             builder.Bind<Database>()
-                .ToSelf();
+                .ToSelf()
+                .InSingletonScope();
 
             builder.Bind(typeof(Repository<>))
                 .ToSelf();
 
+
+            //User Level Services
             builder.Bind<UserService>()
+                .ToSelf();
+            builder.Bind<VideoService>()
                 .ToSelf();
         }
 

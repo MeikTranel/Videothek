@@ -44,15 +44,10 @@
             <!--  Items  -->
             <Metro:HamburgerMenu.ItemsSource>
                 <Metro:HamburgerMenuItemCollection>
-                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=Video}"
+                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=Library}"
                                                  Label="Home"
                                                  Command="{stylet:Action ActivateScreen}"
-                                                 CommandParameter="{Binding VideoViewModel}">
-                    </Metro:HamburgerMenuIconItem>
-
-
-                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=AccountCircle}"
-                                                    Label="Private">
+                                                 CommandParameter="{Binding LibraryViewModel}">
                     </Metro:HamburgerMenuIconItem>
 
                 </Metro:HamburgerMenuItemCollection>
@@ -62,7 +57,7 @@
             <Metro:HamburgerMenu.Content>
                 <Grid x:Name="TheContentGrid">
                     <ContentControl x:Name="TheContent"
-                                        stylet:View.Model="{Binding ActiveItem}" Background="Beige" />
+                                        stylet:View.Model="{Binding ActiveItem}" />
                 </Grid>
             </Metro:HamburgerMenu.Content>
         </Metro:HamburgerMenu>

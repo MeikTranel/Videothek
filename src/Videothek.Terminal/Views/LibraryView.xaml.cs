@@ -14,10 +14,5 @@ namespace Videothek.Terminal.Views
         {
             InitializeComponent();
         }
-
-        protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            ((LibraryViewModel)DataContext).DoVideoOpen(((ListViewItem)sender).Content as Video);
-        }
     }
 }

@@ -26,7 +26,9 @@ namespace Videothek.Terminal.ViewModels
         {
             UnsubscribeFromLoginViewModel((LoginViewModel)sender);
             Clear();
-            ActivateItem(new MainViewModel());
+            ActivateItem(
+                new MainViewModel(_iocContainer)
+            );
         }
 
         private void UnsubscribeFromLoginViewModel(LoginViewModel loginViewModel)

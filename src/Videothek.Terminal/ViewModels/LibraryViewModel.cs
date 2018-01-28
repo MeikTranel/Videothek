@@ -5,22 +5,44 @@ using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
 {
-    class LibraryViewModel : Screen
+    public class LibraryViewModel : Screen
     {
-        public LibraryViewModel(ObservableCollection<Video> videoLibrary)
+        private readonly VideoService _videoService;
+
+
+        private Conductor<IScreen>.Collection.OneActive HostConductor =>
+            (Conductor<IScreen>.Collection.OneActive) Parent;
+
+
+
+        public LibraryViewModel(VideoService videoService)
         {
-            VideoLibrary = videoLibrary;
+            _videoService = videoService;
+            LoadVideos();
         }
 
-        public void DoVideoOpen(Video video)
+
+        private ObservableCollection<VideoViewModel> _videoLibrary;
+        public ObservableCollection<VideoViewModel> VideoLibrary
         {
-            OpenVideo?.Invoke(this, video);
+            get => _videoLibrary;
+            set => SetAndNotify(ref _videoLibrary, value);
         }
 
-        private ObservableCollection<Video> videoLibrary;
+        public void OpenVideo(VideoViewModel videoViewModel)
+        {
+            HostConductor.ActivateItem(videoViewModel);
+        }
 
-        public ObservableCollection<Video> VideoLibrary { get => videoLibrary; set => videoLibrary = value; }
-
-        public event EventHandler<Video> OpenVideo;
+        public void LoadVideos()
+        {
+            ObservableCollection<VideoViewModel> videoViewModels = new ObservableCollection<VideoViewModel>();
+            var videos = _videoService.FetchAllVideos();
+            foreach (var video in videos)
+            {
+                videoViewModels.Add(new VideoViewModel(video));
+            }
+            VideoLibrary = videoViewModels;
+        }
     }
 }
