@@ -13,23 +13,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions> 
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="VideoCoverGrid"
-              Row="0"
-              Column="0">
-            <Grid Margin="20"
-                  Background="{StaticResource ControlBackgroundBrush}">
-                <Rectangle Margin="20" >
-                    <Rectangle.Fill>
-                        <VisualBrush Visual="{StaticResource appbar_video}" Stretch="Uniform" />
-                    </Rectangle.Fill>
-                </Rectangle>
-            </Grid>
-        </Grid>
+        <Border x:Name="VideoCoverGrid"
+                Grid.Row="0" 
+                Grid.Column="0"
+                BorderBrush="White"
+                BorderThickness="5">
+            <Image Source="pack://application:,,/Resources/camera.png"/>
+        </Border>
         <Grid x:Name="VideoPropertyGrid"
               Row="0"
               Column="1">
@@ -48,7 +43,7 @@
                 <TextBlock Text="{Binding IsAvailable}" />
             </StackPanel>
         </Grid>
-        <Grid Row="1" ColumnSpan="2" x:Name="VideoDetailGrid">
+        <Grid Row="1" ColumnSpan="2" Grid.Column="0" x:Name="VideoDetailGrid">
             <Button Content="BUY"/>
         </Grid>
     </Grid>

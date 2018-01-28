@@ -6,33 +6,63 @@
         xmlns:VMs="clr-namespace:Videothek.Terminal.ViewModels"
         xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:stylet="https://github.com/canton7/Stylet"
+        xmlns:IconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d" 
         d:DataContext="{d:DesignInstance VMs:MainViewModel}"
         d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid/>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type Metro:HamburgerMenuIconItem}">
+                <Grid x:Name="RootGrid"
+                      Height="48"
+                      Background="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!-- This ContentControl binds to the Icon property which contains a PackIconXYZ control -->
+                    <ContentControl Grid.Column="0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Focusable="False" 
+                                    Content="{Binding Icon}"/>
+                    <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Text="{Binding Label}" />
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
         <Metro:HamburgerMenu x:Name="HamburgerMenuControl"
-                             ItemsSource="{Binding Items}"
                              DisplayMode="CompactInline"
-                             ItemCommand="{stylet:Action DoActivateDetailViewModel}" 
-                             ItemCommandParameter="{Binding SelectedItem, ElementName=HamburgerMenuControl}"
-                             >
+                             ItemTemplate="{StaticResource MenuItemTemplate}">
+            <!--  Items  -->
+            <Metro:HamburgerMenu.ItemsSource>
+                <Metro:HamburgerMenuItemCollection>
+                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=Video}"
+                                                 Label="Home"
+                                                 Command="{stylet:Action ActivateScreen}"
+                                                 CommandParameter="{Binding VideoViewModel}">
+                    </Metro:HamburgerMenuIconItem>
+
+
+                    <Metro:HamburgerMenuIconItem Icon="{IconPacks:Material Kind=AccountCircle}"
+                                                    Label="Private">
+                    </Metro:HamburgerMenuIconItem>
+
+                </Metro:HamburgerMenuItemCollection>
+            </Metro:HamburgerMenu.ItemsSource>
+
+            <!--  Content template  -->
             <Metro:HamburgerMenu.Content>
                 <Grid x:Name="TheContentGrid">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="8*"/>
-                    </Grid.RowDefinitions>
-                    <Border Grid.Row="0"
-                            Background="{StaticResource MahApps.Metro.HamburgerMenu.PaneBackgroundBrush}"
-                            >
-                        <TextBlock x:Name="Header"
-                                   FontSize="24"
-                                   Text="{Binding ActiveItem.DisplayName}"
-                                   Foreground="{StaticResource MahApps.Metro.HamburgerMenu.PaneForegroundBrush}"
-                        />
-                    </Border>
-                    <ContentControl Grid.Row="1"
-                                    stylet:View.Model="{Binding ActiveItem}"/>
+                    <ContentControl x:Name="TheContent"
+                                        stylet:View.Model="{Binding ActiveItem}" Background="Beige" />
                 </Grid>
             </Metro:HamburgerMenu.Content>
         </Metro:HamburgerMenu>

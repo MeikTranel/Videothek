@@ -5,31 +5,18 @@ namespace Videothek.Terminal.ViewModels
 {
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive
     {
-        public MainViewModel()
+        public VideoViewModel VideoViewModel => new VideoViewModel( new Video()
         {
-            RegisterDetailViewModel(
-                new VideoViewModel(
-                    new Video()
-                    {
-                        Name = "Boondock Saints",
-                        Availability = 123,
-                        Price  = 13.37f,
-                        CoverImageLocation = ""
-                    }
-                )
-            );
-        }
+            Availability = 123,
+            CoverImageLocation = "",
+            ID = 12,
+            Name = "Boondock Saints",
+            Price = 123.53f
+        });
 
-
-        public void DoActivateDetailViewModel(IScreen detailViewModel)
+        public void ActivateScreen(Screen screen)
         {
-            this.ActivateItem(detailViewModel);
-        }
-
-
-        private void RegisterDetailViewModel(IScreen detailViewModel)
-        {
-            this.Items.Add(detailViewModel);
+            this.ActivateItem(screen);
         }
     }
 }
