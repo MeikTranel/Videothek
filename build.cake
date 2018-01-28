@@ -47,7 +47,8 @@ Task("Compile")
            ToolVersion = MSBuildToolVersion.VS2017,
            Configuration = Settings.Configuration,
            PlatformTarget = Settings.PlatformTarget,
-           Verbosity = Verbosity.Minimal
+           Verbosity = Verbosity.Minimal,
+           MaxCpuCount = 2
        }
     );
 });
@@ -67,7 +68,7 @@ Task("Publish")
 Task("Package") 
 .IsDependentOn("Publish") 
 .Does(() => { 
-    var artifactFolders = GetDirectories(Settings.Directories.BinaryOutputDirectory.FullPath + "/**/*"); 
+    var artifactFolders = GetDirectories(Settings.Directories.BinaryOutputDirectory.FullPath + "/*"); 
     Information($"Found {artifactFolders.Count} Artifact directories.");
     foreach(var artifactFolder in artifactFolders){ 
         Information($"Zipping {artifactFolder}");
