@@ -163,12 +163,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\WindowsIcons-license.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Entypo-license.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Videothek.Authentication\Videothek.Authentication.csproj">
       <Project>{00b677b5-23f6-4826-9324-a19e7ec0ab1a}</Project>
       <Name>Videothek.Authentication</Name>
