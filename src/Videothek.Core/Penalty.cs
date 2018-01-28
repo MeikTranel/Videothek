@@ -2,7 +2,7 @@
 
 namespace Videothek.Core
 {
-    public sealed class Penalty
+    public class Penalty
     {
         public int ID { get; set; }
         public User User { get; set; }

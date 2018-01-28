@@ -1,6 +1,6 @@
 ﻿namespace Videothek.Core
 {
-    public sealed class Video
+    public class Video
     {
         public int ID { get; set; }
         public string Name { get; set; }
