@@ -31,7 +31,12 @@ Task("AppVeyor-UpdateBuildVersion")
 Task("Restore-Dependencies")
 .IsDependentOn("AppVeyor-UpdateBuildVersion")
 .Does(() => {
-    NuGetRestore("./src/Videothek.sln");
+    NuGetRestore(
+        "./src/Videothek.sln",
+        new NuGetRestoreSettings(){
+            Verbosity = NuGetVerbosity.Normal
+        }
+    );
 });
 
 Task("Compile")
@@ -47,7 +52,8 @@ Task("Compile")
            ToolVersion = MSBuildToolVersion.VS2017,
            Configuration = Settings.Configuration,
            PlatformTarget = Settings.PlatformTarget,
-           Verbosity = Verbosity.Minimal
+           Verbosity = Verbosity.Minimal,
+           MaxCpuCount = 2
        }
     );
 });
@@ -67,7 +73,7 @@ Task("Publish")
 Task("Package") 
 .IsDependentOn("Publish") 
 .Does(() => { 
-    var artifactFolders = GetDirectories(Settings.Directories.BinaryOutputDirectory.FullPath + "/**/*"); 
+    var artifactFolders = GetDirectories(Settings.Directories.BinaryOutputDirectory.FullPath + "/*"); 
     Information($"Found {artifactFolders.Count} Artifact directories.");
     foreach(var artifactFolder in artifactFolders){ 
         Information($"Zipping {artifactFolder}");
@@ -81,7 +87,7 @@ Task("AppVeyor")
 .Does(() => 
 {     
     foreach(var artifactZip in GetFiles(Settings.Directories.BinaryOutputDirectory + "/*.zip")){ 
-        Information($"Uploading { artifactZip } to AppVeyor as '{ artifactZip.GetFilename()}'."); 
+        Information($"Uploading { artifactZip } to AppVeyor as '{ artifactZip.GetFilename() }'."); 
         BuildSystem.AppVeyor.UploadArtifact(artifactZip);
     } 
 });

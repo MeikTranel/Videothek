@@ -1,25 +1,41 @@
 ﻿using System;
 using System.Security;
 using Videothek.Authentication;
-using Videothek.Persistence;
 
 namespace Videothek.Core.Authorization
 {
     public class SessionProvider: ISessionProvider
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly UserService _userService;
         private readonly IAuthenticationStrategy _authenticationStrategy;
 
-        public SessionProvider(IRepository<User> userRepository,IAuthenticationStrategy authenticationStrategy)
+        public SessionProvider(UserService userService,IAuthenticationStrategy authenticationStrategy)
         {
-            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
             _authenticationStrategy = authenticationStrategy ?? throw new ArgumentNullException(nameof(authenticationStrategy));
         }
 
-        public Session RequestSession(string userName, SecureString password)
+
+        private Session ActiveSession { get; set; }
+
+        public bool TryGetActiveSession(out Session session)
         {
-            var user = ResolveUserName(userName);
-            return new Session(
+            if (ActiveSession != null)
+            {
+                session = ActiveSession;
+                return true;
+            }
+            else
+            {
+                session = null;
+                return false;
+            }
+        }
+
+        public void CreateSession(string username, SecureString password)
+        {
+            var user = ResolveUserName(username);
+            this.ActiveSession = new Session(
                 user,
                 GenerateAuthenticationToken(user, password)
             );
@@ -34,14 +50,11 @@ namespace Videothek.Core.Authorization
 
         private User ResolveUserName(string userName)
         {
-            try
-            {
-                return _userRepository.Get(userName);
-            }
-            catch (EntityNotFoundException<User>)
-            {
+            var userExists = _userService.TryGetUser(userName, out var user);
+            if (!userExists)
                 throw new AuthenticationFailedException($"Could not resolve UserName: {userName}");
-            }
+
+            return user;
         }
     }
 }

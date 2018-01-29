@@ -1,18 +1,8 @@
-﻿using Videothek.Persistence;
-
-namespace Videothek.Core
+﻿namespace Videothek.Core
 {
-    public class User : IEntity
+    public class User 
     {
-        public User(int id, string name)
-        {
-            ID = id;
-            Name = name;
-            Balance = 0;
-        }
-
-        public int ID { get; }
-        public string Name { get; }
-        public float Balance { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }

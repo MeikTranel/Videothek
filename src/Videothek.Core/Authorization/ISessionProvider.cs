@@ -4,6 +4,7 @@ namespace Videothek.Core.Authorization
 {
     public interface ISessionProvider
     {
-        Session RequestSession(string username,SecureString password);
+        bool TryGetActiveSession(out Session session);
+        void CreateSession(string username,SecureString password);
     }
 }

@@ -13,7 +13,7 @@
                     </s:ApplicationLoader.Bootstrapper>
                 </s:ApplicationLoader>
                 <!-- Merge in Mahapps Metro styles-->
-                <ResourceDictionary Source="./Resources/Metro.xaml" />
+                <ResourceDictionary Source="Metro.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
