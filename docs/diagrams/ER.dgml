@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Database" Category="Database" Bounds="-161.244594980876,-163.275697333781,539.848333333333,485.76" Group="Expanded" Label="Videothek.Production.sqlite" UseManualLocation="True" />
+    <Node Id="Penalties" Category="Table" Bounds="-141.244594980876,-123.275697333781,250,197.88" Group="Expanded" Label="Penalties" />
+    <Node Id="Penalties_Date" Category="Field Optional" Bounds="-121.244594980876,-27.315697333781,50,25.96" Description="bigint" Label="Date" />
+    <Node Id="Penalties_ID" Category="Field Primary" Bounds="-121.244594980876,-83.275697333781,50,25.96" Description="bigint" Label="ID" />
+    <Node Id="Penalties_Note" Category="Field Optional" Bounds="-41.2445949808757,-83.275697333781,50,25.96" Description="nvarchar(2147483647)" Label="Note" />
+    <Node Id="Penalties_Paid" Category="Field Optional" Bounds="-41.2445949808757,-27.315697333781,50,25.96" Description="bigint" Label="Paid" />
+    <Node Id="Penalties_UserID" Category="Field Optional" Bounds="-121.244594980876,28.644302666219,55.3933333333333,25.96" Description="bigint" Label="UserID" />
+    <Node Id="Penalties_Value" Category="Field Optional" Bounds="38.7554050191243,-83.275697333781,50,25.96" Description="float" Label="Value" />
+    <Node Id="Rentals" Category="Table" Bounds="138.888738352458,-95.295697333781,187.733333333333,141.92" Group="Expanded" Label="Rentals" />
+    <Node Id="Rentals_Date" Category="Field Optional" Bounds="238.888738352458,-55.295697333781,50,25.96" Description="bigint" Label="Date" />
+    <Node Id="Rentals_ID" Category="Field Primary" Bounds="158.888738352458,-55.295697333781,50,25.96" Description="bigint" Label="ID" />
+    <Node Id="Rentals_UserID" Category="Field Optional" Bounds="158.888738352458,0.664302666219005,55.3933333333333,25.96" Description="bigint" Label="UserID" />
+    <Node Id="Rentals_VideoID" Category="Field Optional" Bounds="244.282071685791,0.664302666219005,62.34,25.96" Description="bigint" Label="VideoID" />
+    <Node Id="Users" Category="Table" Bounds="-95.092928314209,132.584302666219,171.696666666667,141.92" Group="Expanded" Label="Users" />
+    <Node Id="Users_Balance" Category="Field Optional" Bounds="-75.092928314209,228.544302666219,60.61,25.96" Description="float" Label="Balance" />
+    <Node Id="Users_ID" Category="Field Primary" Bounds="-75.092928314209,172.584302666219,50,25.96" Description="bigint" Label="ID" />
+    <Node Id="Users_Name" Category="Field Optional" Bounds="4.90707168579103,172.584302666219,51.6966666666667,25.96" Description="nvarchar(2147483647)" Label="Name" />
+    <Node Id="Videos" Category="Table" Bounds="106.907071685791,104.604302666219,251.696666666667,197.88" Group="Expanded" Label="Videos" />
+    <Node Id="Videos_Availability" Category="Field Optional" Bounds="126.907071685791,200.564302666219,76.9266666666667,25.96" Description="bigint" Label="Availability" />
+    <Node Id="Videos_CoverImageLocation" Category="Field Optional" Bounds="126.907071685791,256.524302666219,128.76,25.96" Description="nvarchar(2147483647)" Label="CoverImageLocation" />
+    <Node Id="Videos_ID" Category="Field Primary" Bounds="126.907071685791,144.604302666219,50,25.96" Description="bigint" Label="ID" />
+    <Node Id="Videos_Name" Category="Field Optional" Bounds="286.907071685791,144.604302666219,51.6966666666666,25.96" Description="nvarchar(2147483647)" Label="Name" />
+    <Node Id="Videos_Price" Category="Field Optional" Bounds="206.907071685791,144.604302666219,50,25.96" Description="float" Label="Price" />
+  </Nodes>
+  <Links>
+    <Link Source="Database" Target="Penalties" Category="Contains" />
+    <Link Source="Database" Target="Rentals" Category="Contains" />
+    <Link Source="Database" Target="Users" Category="Contains" />
+    <Link Source="Database" Target="Videos" Category="Contains" />
+    <Link Source="Penalties" Target="Penalties_Date" Category="Contains" />
+    <Link Source="Penalties" Target="Penalties_ID" Category="Contains" />
+    <Link Source="Penalties" Target="Penalties_Note" Category="Contains" />
+    <Link Source="Penalties" Target="Penalties_Paid" Category="Contains" />
+    <Link Source="Penalties" Target="Penalties_UserID" Category="Contains" />
+    <Link Source="Penalties" Target="Penalties_Value" Category="Contains" />
+    <Link Source="Penalties_ID" Target="Users_ID" Bounds="207.047100690297,-44.8566188852196,62.741746275135,176.361527942837" />
+    <Link Source="Penalties_UserID" Target="Users_ID" Bounds="208.167225626277,-44.5528369325234,64.3904259681115,288.014904974517" />
+    <Link Source="Rentals" Target="Rentals_Date" Category="Contains" />
+    <Link Source="Rentals" Target="Rentals_ID" Category="Contains" />
+    <Link Source="Rentals" Target="Rentals_UserID" Category="Contains" />
+    <Link Source="Rentals" Target="Rentals_VideoID" Category="Contains" />
+    <Link Source="Rentals_UserID" Target="Users_ID" Bounds="-107.486824086507,-61.1020156438938,351.014616557811,53.9952594792923" />
+    <Link Source="Rentals_VideoID" Target="Videos_ID" Bounds="-132.140717911716,10.133714873759,77.624443586351,122.881707948121" />
+    <Link Source="Users" Target="Users_Balance" Category="Contains" />
+    <Link Source="Users" Target="Users_ID" Category="Contains" />
+    <Link Source="Users" Target="Users_Name" Category="Contains" />
+    <Link Source="Videos" Target="Videos_Availability" Category="Contains" />
+    <Link Source="Videos" Target="Videos_CoverImageLocation" Category="Contains" />
+    <Link Source="Videos" Target="Videos_ID" Category="Contains" />
+    <Link Source="Videos" Target="Videos_Name" Category="Contains" />
+    <Link Source="Videos" Target="Videos_Price" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Database" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="ToolTip" DataType="System.String" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Circular References" ToolTip="Node is part of a strongly coupled component" ValueLabel="Nodes">
+      <Condition Expression="IsStronglyConnected" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Circular References" ToolTip="Node is part of a strongly coupled component" ValueLabel="Links">
+      <Condition Expression="IsCircularLink" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

@@ -28,5 +28,17 @@ namespace Videothek.Core
                 return true;
             }
         }
+
+        public void Debit(int userID,float amount)
+        {
+            UserEntity updatedUser = _userRepository.Get(userID);
+            var currentBalance = updatedUser.Balance;
+            updatedUser.Balance = currentBalance - amount;
+
+            if (updatedUser.Balance < 0)
+                throw new InvalidOperationException("Cannot invoice beyond the users balance.");
+
+            _userRepository.Update(updatedUser);
+        }
     }
 }
