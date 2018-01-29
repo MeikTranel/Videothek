@@ -25,8 +25,13 @@ namespace Videothek.Terminal.ViewModels
         public void DoRent()
         {
             RentalService rentalService = _container.Get<RentalService>();
-            if(_container.Get<ISessionProvider>().TryGetActiveSession(out Session session))
-                rentalService.RentAVideo(_video,session.User);
+            if (_container.Get<ISessionProvider>().TryGetActiveSession(out Session session))
+                try {
+                    rentalService.RentAVideo(_video, session.User.ID);
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             else
             {
                 throw new InvalidOperationException("Could not fetch active Session");

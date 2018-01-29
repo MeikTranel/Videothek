@@ -5,7 +5,7 @@ using Videothek.Core;
 
 namespace Videothek.Terminal.ViewModels
 {
-    class BalanceViewModel:Screen
+    class BalanceViewModel : Screen
     {
         private readonly User _user;
         
