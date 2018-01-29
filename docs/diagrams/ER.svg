@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg stroke-linecap="round" font-size="12" font-family="Segoe UI" width="619.84833333333336" height="565.76000000000022" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs />
+  <rect width="539.84833333333336" height="485.76000000000022" fill="#1E1E1E" />
+  <g transform="translate(20,20)">
+    <rect rx="5" ry="5" width="539.84833333333336" height="485.76000000000022" fill="#FFFFFF" stroke="#A0B862" stroke-width="4" />
+    <text x="197" y="17.950000000000003" fill="#000000">Videothek.Production.sqlite</text>
+    <rect x="5" y="27.96" width="529.84833333333336" height="452.80000000000024" fill="white" stroke="#A0B862" stroke-width="4" />
+    <path d="M 148.039231174302,237.88 L 149.543925320735,286.864243155599" fill="none" stroke="#A0A0A0" stroke-width="1.5" />
+    <path d="M 149.820256275233,295.86 L 153.511336034414,285.741900859778 C 150.876630038424,286.823305236414 148.211220603046,286.905181074784 145.51510772828,285.987528374887 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+    <path d="M 318.643145515183,209.9 L 233.909096257909,289.690062581602" fill="none" stroke="#A0A0A0" stroke-width="1" />
+    <path d="M 227.356854484817,295.86 L 237.379317529763,291.916621434266 C 234.823161060634,290.660765066505 232.995031455183,288.7193600967 231.894928713409,286.092406524851 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+    <path d="M 394,209.9 L 394,258.88" fill="none" stroke="#A0A0A0" stroke-width="1" />
+    <path d="M 394,267.88 L 398,257.88 C 395.333333333333,258.88 392.666666666667,258.88 390,257.88 z" fill="#A0A0A0" stroke="#A0A0A0" stroke-width="1" stroke-linejoin="round" />
+    <rect x="20" y="40" rx="5" ry="5" width="250" height="197.88000000000011" fill="#C0C0C0" stroke="#A0B862" stroke-width="4" />
+    <text x="121" y="57.95" fill="#000000">Penalties</text>
+    <rect x="25" y="67.960000000000008" width="240" height="164.9200000000001" fill="white" stroke="#A0B862" stroke-width="4" />
+    <rect x="40" y="80" rx="3" ry="3" width="50" height="25.960000000000008" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="52" y="97.95" fill="#FFFFFF">Date</text>
+    <rect x="120" y="80" rx="3" ry="3" width="50" height="25.960000000000008" fill="#008000" stroke="#A0B862" stroke-width="4" />
+    <text x="139" y="97.95" fill="#FFFFFF">ID</text>
+    <rect x="200" y="80" rx="3" ry="3" width="50" height="25.960000000000008" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="211" y="97.95" fill="#FFFFFF">Note</text>
+    <rect x="40" y="135.96000000000004" rx="3" ry="3" width="50" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="53" y="153.91000000000003" fill="#FFFFFF">Paid</text>
+    <rect x="40" y="191.92000000000007" rx="3" ry="3" width="55.393333333333317" height="25.95999999999998" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="50" y="209.87000000000006" fill="#FFFFFF">UserID</text>
+    <rect x="120" y="135.96000000000004" rx="3" ry="3" width="50" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="130" y="153.91000000000003" fill="#FFFFFF">Value</text>
+    <rect x="300.13333333333333" y="67.980000000000018" rx="5" ry="5" width="187.73333333333335" height="141.92000000000007" fill="#C0C0C0" stroke="#A0B862" stroke-width="4" />
+    <text x="374.13333333333333" y="85.930000000000021" fill="#000000">Rentals</text>
+    <rect x="305.13333333333333" y="95.940000000000026" width="177.73333333333335" height="108.96000000000007" fill="white" stroke="#A0B862" stroke-width="4" />
+    <rect x="320.13333333333333" y="107.98000000000003" rx="3" ry="3" width="50" height="25.960000000000022" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="332.13333333333333" y="125.93000000000004" fill="#FFFFFF">Date</text>
+    <rect x="400.13333333333333" y="107.98000000000003" rx="3" ry="3" width="50" height="25.960000000000022" fill="#008000" stroke="#A0B862" stroke-width="4" />
+    <text x="419.13333333333333" y="125.93000000000004" fill="#FFFFFF">ID</text>
+    <rect x="320.13333333333333" y="163.94000000000006" rx="3" ry="3" width="55.393333333333317" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="330.13333333333333" y="181.89000000000004" fill="#FFFFFF">UserID</text>
+    <rect x="405.52666666666664" y="163.94000000000006" rx="3" ry="3" width="62.340000000000032" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="415.52666666666664" y="181.89000000000004" fill="#FFFFFF">VideoID</text>
+    <rect x="66.1516666666667" y="295.86000000000013" rx="5" ry="5" width="171.69666666666672" height="141.92000000000007" fill="#C0C0C0" stroke="#A0B862" stroke-width="4" />
+    <text x="137.1516666666667" y="313.81000000000012" fill="#000000">Users</text>
+    <rect x="71.1516666666667" y="323.82000000000011" width="161.69666666666672" height="108.96000000000007" fill="white" stroke="#A0B862" stroke-width="4" />
+    <rect x="86.1516666666667" y="391.82000000000016" rx="3" ry="3" width="60.610000000000014" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="96.1516666666667" y="409.77000000000015" fill="#FFFFFF">Balance</text>
+    <rect x="86.1516666666667" y="335.86000000000013" rx="3" ry="3" width="50" height="25.960000000000036" fill="#008000" stroke="#A0B862" stroke-width="4" />
+    <text x="105.1516666666667" y="353.81000000000012" fill="#FFFFFF">ID</text>
+    <rect x="166.1516666666667" y="335.86000000000013" rx="3" ry="3" width="51.696666666666715" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="176.1516666666667" y="353.81000000000012" fill="#FFFFFF">Name</text>
+    <rect x="268.15166666666676" y="267.88000000000011" rx="5" ry="5" width="251.6966666666666" height="197.88000000000011" fill="#C0C0C0" stroke="#A0B862" stroke-width="4" />
+    <text x="375.15166666666676" y="285.8300000000001" fill="#000000">Videos</text>
+    <rect x="273.15166666666676" y="295.84000000000009" width="241.6966666666666" height="164.9200000000001" fill="white" stroke="#A0B862" stroke-width="4" />
+    <rect x="288.15166666666676" y="363.84000000000015" rx="3" ry="3" width="76.926666666666733" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="298.15166666666676" y="381.79000000000013" fill="#FFFFFF">Availability</text>
+    <rect x="288.15166666666676" y="419.80000000000018" rx="3" ry="3" width="128.76" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="298.15166666666676" y="437.75000000000017" fill="#FFFFFF">CoverImageLocation</text>
+    <rect x="288.15166666666676" y="307.88000000000011" rx="3" ry="3" width="50" height="25.960000000000036" fill="#008000" stroke="#A0B862" stroke-width="4" />
+    <text x="307.15166666666676" y="325.8300000000001" fill="#FFFFFF">ID</text>
+    <rect x="448.15166666666676" y="307.88000000000011" rx="3" ry="3" width="51.6966666666666" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="458.15166666666676" y="325.8300000000001" fill="#FFFFFF">Name</text>
+    <rect x="368.15166666666676" y="307.88000000000011" rx="3" ry="3" width="50" height="25.960000000000036" fill="#808040" stroke="#A0B862" stroke-width="4" />
+    <text x="380.15166666666676" y="325.8300000000001" fill="#FFFFFF">Price</text>
+  </g>
+</svg>
