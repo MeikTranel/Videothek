@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Videothek.Persistence.Database">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAgAAAIAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Persistence.EntityNotFoundException">
+    <Position X="5.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityNotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Persistence.PortableLocalDBStorageLocationStrategy" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="6.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>PortableLocalDBStorageLocationStrategy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Videothek.Persistence.Repository&lt;T&gt;">
+    <Position X="0.5" Y="3" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAABAAAAAAAAAAAEAAAQAAAAAABAgAAA=</HashCode>
+      <FileName>Repository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Persistence.Entities.PenaltyEntity">
+    <Position X="6.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAggAAAAAAAAAgAAAAAAAABAAAgAAEAAAA=</HashCode>
+      <FileName>Entities\PenaltyEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Persistence.Entities.RentalEntity">
+    <Position X="9" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAgAgAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\RentalEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Persistence.Entities.UserEntity">
+    <Position X="6.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\UserEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Persistence.Entities.VideoEntity">
+    <Position X="9" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAQAAgAAAAAABAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\VideoEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Videothek.Persistence.ILocalDBStorageLocationStrategy">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>ILocalDBStorageLocationStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

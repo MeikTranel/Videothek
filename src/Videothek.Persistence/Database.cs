@@ -46,11 +46,13 @@ namespace Videothek.Persistence
             SQLiteConnection.RunInTransaction(() => {
                 SQLiteConnection.Insert(new UserEntity()
                 {
-                    Name = "Admin"
+                    Name = "Admin",
+                    Balance = 999.99F
                 });
                 SQLiteConnection.Insert(new UserEntity()
                 {
-                    Name = "Meik"
+                    Name = "Meik",
+                    Balance = 123112313.12F
                 });
 
                 SQLiteConnection.Insert(new VideoEntity()

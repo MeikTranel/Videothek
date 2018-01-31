@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="Videothek.Core.Penalty">
+    <Position X="7" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAggAAAAAAAAAAAAAAAAAABAAAgAAEAAAA=</HashCode>
+      <FileName>Penalty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.Rental">
+    <Position X="10" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAgAAAAAAAAAAAAAAAAAABAAAAAAAAAAg=</HashCode>
+      <FileName>Rental.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.RentalService">
+    <Position X="13.75" Y="8.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>RentalService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.User">
+    <Position X="7.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.UserService">
+    <Position X="6.25" Y="8.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.Video">
+    <Position X="9.25" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAQAAgAAAAAABAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Video.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.VideoService">
+    <Position X="9" Y="8.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>VideoService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.Authorization.Session">
+    <Position X="0.5" Y="9.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Authorization\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.Authorization.SessionProvider" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="6.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAFAAAAAAAAACAAAAAAIAAAAEAAAAgAI=</HashCode>
+      <FileName>Authorization\SessionProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Videothek.Core.Mapping.EntityToBusinessObjectConfiguration">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAhA=</HashCode>
+      <FileName>Mapping\EntityToBusinessObjectConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Videothek.Core.Mapping.ForeignKeyResolver&lt;TNestedEntity, TNestedBusinessClass&gt;" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="0.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\ForeignKeyResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Videothek.Core.Authorization.ISessionProvider">
+    <Position X="0.5" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Authorization\ISessionProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
